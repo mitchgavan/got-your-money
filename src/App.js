@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import logo from './logo.svg';
+import UserDetailsForm from './components/UserDetailsForm';
 
 const rotate360 = keyframes`
   from { transform: rotate(0deg); }
@@ -35,6 +36,7 @@ class App extends Component {
         <Intro>
           To get started, edit <code>src/App.js</code> and save to reload.
         </Intro>
+        <UserDetailsForm />
       </div>
     );
   }

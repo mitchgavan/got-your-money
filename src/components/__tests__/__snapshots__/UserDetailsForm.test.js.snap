@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It renders correctly 1`] = `
+<form>
+  <label>
+    <span>
+      Weekly income
+    </span>
+    <input
+      type="text"
+    />
+  </label>
+</form>
+`;
