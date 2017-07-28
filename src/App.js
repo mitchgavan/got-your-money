@@ -30,7 +30,7 @@ class App extends Component {
       <div className="App">
         <Header>
           <Logo src={logo} alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Got Your Money</h2>
         </Header>
         <Intro>
           To get started, edit <code>src/App.js</code> and save to reload.
