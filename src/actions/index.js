@@ -1,9 +1,10 @@
 let nextItemId = 0
 
-export const addItem = () => {
+export const addItem = (title, cost) => {
   return {
     type: 'ADD_ITEM',
     id: nextItemId++,
-    text: 'Dinner'
+    title,
+    cost:  `$${cost.toFixed(2)}`
   }
 }

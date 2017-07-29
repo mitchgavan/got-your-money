@@ -5,9 +5,9 @@ export default ({
 }) => (
   <form>
     <label>
-      <span>Weekly income</span>
+      <span>Stuff paid for this week</span>
       <button
-        onClick={onClick}
+        onClick={() => onClick('Dinner', 23)}
         type="button"
       >
         Add item

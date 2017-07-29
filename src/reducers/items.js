@@ -12,7 +12,8 @@ export default (state = [], action) => {
         ...state,
         {
           id: action.id,
-          text: action.text,
+          title: action.title,
+          cost: action.cost
         }
       ]
     default:
