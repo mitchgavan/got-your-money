@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
-import styled, { keyframes } from 'styled-components';
-import logo from './logo.svg';
-import UserDetailsForm from './components/UserDetailsForm';
+import React, { Component } from 'react'
+import { Route, Link } from 'react-router-dom'
+import styled, { keyframes } from 'styled-components'
+import logo from './logo.svg'
+import Home from './scenes/home'
+import About from './scenes/about'
 
 const rotate360 = keyframes`
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-`;
+`
 
 const Header = styled.div`
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
-`;
+`
 
 const Logo = styled.img`
   animation: ${rotate360} infinite 20s linear;
   height: 80px;
-`;
-
-const Intro = styled.div`
-  padding: 20px;
-  font-size: large;
-`;
+`
 
 class App extends Component {
   render() {
@@ -32,14 +29,16 @@ class App extends Component {
         <Header>
           <Logo src={logo} alt="logo" />
           <h2>Got Your Money</h2>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
         </Header>
-        <Intro>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </Intro>
-        <UserDetailsForm />
+        <main>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+        </main>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
