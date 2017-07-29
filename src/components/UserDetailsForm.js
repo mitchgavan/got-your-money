@@ -1,16 +1,20 @@
 import React from 'react';
 
-export default ({
-  onClick
-}) => (
+export default ({ onAddClick, onRemoveClick }) => (
   <form>
     <label>
       <span>Stuff paid for this week</span>
       <button
-        onClick={() => onClick('Dinner', 23)}
+        onClick={() => onAddClick('Dinner', 23)}
         type="button"
       >
         Add item
+      </button>
+      <button
+        onClick={() => onRemoveClick(1)}
+        type="button"
+      >
+        Remove item
       </button>
     </label>
   </form>

@@ -12,14 +12,17 @@ const Intro = styled.div`
 
 const renderItems = item => <ExpenseItem key={item.id} {...item} />
 
-export default ({ changePage, addItem, items }) => (
+export default ({ changePage, addItem, removeItem, items }) => (
   <div>
     <Intro>
       <button onClick={() => changePage()}>
         Go to about page via redux
       </button>
     </Intro>
-    <UserDetailsForm onClick={addItem} />
+    <UserDetailsForm
+      onAddClick={addItem}
+      onRemoveClick={removeItem}
+    />
     {map(renderItems, items)}
   </div>
 )

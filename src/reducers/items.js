@@ -1,5 +1,3 @@
-export const ADD_ITEM = 'items/ADD_ITEM'
-
 // const initialState = {
 //   expenseItems: []
 // }
@@ -16,6 +14,11 @@ export default (state = [], action) => {
           cost: action.cost
         }
       ]
+    case 'REMOVE_ITEM':
+      return [
+        ...state.slice(0, state.length - 1),
+      ];
+
     default:
       return state
   }

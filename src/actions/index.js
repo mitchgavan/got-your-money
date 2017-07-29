@@ -5,6 +5,13 @@ export const addItem = (title, cost) => {
     type: 'ADD_ITEM',
     id: nextItemId++,
     title,
-    cost:  `$${cost.toFixed(2)}`
+    cost: `$${cost.toFixed(2)}`
+  }
+}
+
+export const removeItem = (id) => {
+  return {
+    type: 'REMOVE_ITEM',
+    id,
   }
 }
