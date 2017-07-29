@@ -1,10 +1,17 @@
 import React from 'react';
 
-export default () => (
+export default ({
+  onClick
+}) => (
   <form>
     <label>
       <span>Weekly income</span>
-      <input type="text" />
+      <button
+        onClick={onClick}
+        type="button"
+      >
+        Add item
+      </button>
     </label>
   </form>
 );
