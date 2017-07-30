@@ -1,9 +1,13 @@
 import React from 'react';
+import styled from 'styled-components'
+import { fontSize, color } from 'styled-system'
+
+import Text from './Text'
 
 export default ({ onAddClick, onRemoveClick }) => (
   <form>
     <label>
-      <span>Stuff paid for this week</span>
+      <Text fontSize={4}>Stuff paid for this week</Text>
       <button
         onClick={() => onAddClick('Dinner', 23)}
         type="button"

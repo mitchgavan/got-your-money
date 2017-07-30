@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, ThemeProvider } from 'styled-components'
+
+import theme from './theme';
 import logo from './logo.svg'
 import Home from './scenes/home'
 import About from './scenes/about'
+
 
 const rotate360 = keyframes`
   from { transform: rotate(0deg); }
@@ -25,18 +28,20 @@ const Logo = styled.img`
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header>
-          <Logo src={logo} alt="logo" />
-          <h2>Got Your Money</h2>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-        </Header>
-        <main>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
-        </main>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div style={{textAlign: 'center'}}>
+          <Header>
+            <Logo src={logo} alt="logo" />
+            <h2>Got Your Money</h2>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+          </Header>
+          <main>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+          </main>
+        </div>
+      </ThemeProvider>
     )
   }
 }

@@ -1,11 +1,12 @@
-import React from 'react';
+import React from 'react'
+import Box from './Box'
+import Text from './Text'
+import InlineText from './InlineText'
 
-export default ({
-  id,
-  title,
-  cost
-}) => (
-  <div>
-    <h3>{title} <span>{cost}</span></h3>
-  </div>
-);
+export default ({ id, title, cost }) => (
+  <Box>
+    <Text fontSize={2}>
+      {title} <InlineText color="blue">{cost}</InlineText>
+    </Text>
+  </Box>
+)
