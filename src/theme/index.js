@@ -10,7 +10,8 @@ export default {
   ],
   colors: {
     black: '#111',
-    blue: '#07c',
-    green: '#3adb76'
+    blue: '#1779ba',
+    green: '#3adb76',
+    white: '#fefefe'
   }
 }

@@ -8,7 +8,7 @@ import Button from './Button'
 export default ({ onAddClick, onRemoveClick }) => (
   <form>
     <label>
-      <Text fontSize={4}>Stuff paid for this week</Text>
+      <Text fontSize={3}>Stuff paid for this week</Text>
       <Button
         onClick={() => onAddClick('Dinner', 23)}
         type="button"

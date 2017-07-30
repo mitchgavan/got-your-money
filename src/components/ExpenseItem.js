@@ -4,7 +4,7 @@ import Text from './Text'
 import InlineText from './InlineText'
 
 export default ({ id, title, cost }) => (
-  <Box>
+  <Box m={[ 1, 2, 3 ]}>
     <Text fontSize={2}>
       {title} <InlineText color="blue">{cost}</InlineText>
     </Text>

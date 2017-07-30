@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { space, width, fontSize, color } from 'styled-system'
 
+import theme from '../theme'
+
 export default styled.button`
   display: inline-block;
   vertical-align: middle;
@@ -12,8 +14,8 @@ export default styled.button`
   font-size: 0.9rem;
   line-height: 1;
   text-align: center;
-  background-color: #1779ba;
-  color: #fefefe;
+  background-color: ${theme.colors.blue};
+  color: ${theme.colors.white};
   cursor: pointer;
   transition-property: background-color, color;
   transition-duration: 0.25s;
