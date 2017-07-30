@@ -4,6 +4,7 @@ import { map } from 'ramda'
 
 import UserDetailsForm from '../../components/UserDetailsForm'
 import ExpenseItem from '../../components/ExpenseItem'
+import ButtonLink from '../../components/ButtonLink'
 
 const Intro = styled.div`
   padding: 20px;
@@ -15,9 +16,9 @@ const renderItems = item => <ExpenseItem key={item.id} {...item} />
 export default ({ changePage, addItem, removeItem, items }) => (
   <div>
     <Intro>
-      <button onClick={() => changePage()}>
+      <ButtonLink onClick={() => changePage()}>
         Go to about page via redux
-      </button>
+      </ButtonLink>
     </Intro>
     <UserDetailsForm
       onAddClick={addItem}
