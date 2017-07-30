@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+Stack includes: 
+- React
+- Redux
+- React Router
+- Ramda
+- Styled Components
+
 ## Available Scripts
 
 In the project directory, you can run:
