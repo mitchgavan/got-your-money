@@ -4,11 +4,20 @@ exports[`It renders correctly 1`] = `
 <form>
   <label>
     <span>
-      Weekly income
+      Stuff paid for this week
     </span>
-    <input
-      type="text"
-    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Add item
+    </button>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Remove item
+    </button>
   </label>
 </form>
 `;
