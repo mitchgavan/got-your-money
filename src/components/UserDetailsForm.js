@@ -1,9 +1,8 @@
-import React from 'react';
-import styled from 'styled-components'
-import { fontSize, color } from 'styled-system'
+import React from 'react'
 
 import Text from './Text'
 import Button from './Button'
+
 
 export default ({ onAddClick, onRemoveClick }) => (
   <form>
