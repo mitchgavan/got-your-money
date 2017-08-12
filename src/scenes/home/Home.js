@@ -17,19 +17,22 @@ export default ({
   removeItem,
   items
 }) => (
-  <Container>
+  <div>
     <ExpenseTotal total={getTotalCost(items).toFixed(2)} />
-    <Box p={3}>
-      <ButtonLink onClick={() => changePage()}>
-        Go to about page via redux
-      </ButtonLink>
-    </Box>
-    <UserDetailsForm
-      onAddClick={addItem}
-      onRemoveClick={removeItem}
-    />
-    <Flex wrap="wrap">
-      {map(renderItems, items)}
-    </Flex>
-  </Container>
+    <Container>
+      <Box p={3}>
+        <ButtonLink onClick={() => changePage()}>
+          Go to about page via redux
+        </ButtonLink>
+      </Box>
+      <UserDetailsForm
+        onAddClick={addItem}
+        onRemoveClick={removeItem}
+      />
+      <Flex wrap="wrap">
+        {map(renderItems, items)}
+      </Flex>
+    </Container>
+  </div>
+
 )

@@ -3,31 +3,28 @@ import styled from 'styled-components'
 import { Box } from 'grid-styled'
 import Text from '../../components/Text'
 import Block from '../../components/Block'
+import HeadingSmall from '../../components/HeadingSmall'
 import theme from '../../theme'
 
 const { colors } = theme
+
 const BlockGradient = styled(Block)`
   background: #ff8008;
   background: linear-gradient(to right, #ff8008, #ffc837);
 `
 
 export default ({ total }) => (
-  <Box
-    mb={2}
-    w={[1, 1, 1/2]}
-  >
-    <BlockGradient
-      p={[ 4, 4 ]}
-    >
-      <Text
-        fontSize={2}
+  <Box mb={2}>
+    <BlockGradient p={[4, 5]}>
+      <HeadingSmall
+        fontSize={1}
         color={colors.white}
-        m={1}
+        mb={2}
       >
         Total Expenses
-      </Text>
+      </HeadingSmall>
       <Text
-        fontSize={4}
+        fontSize={5}
         color={colors.white}
         m={1}
       >
