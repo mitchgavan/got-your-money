@@ -11,6 +11,7 @@ const { colors } = theme
 const BlockGradient = styled(Block)`
   background: #ff8008;
   background: linear-gradient(to right, #ff8008, #ffc837);
+  text-align: center;
 `
 
 export default ({ total }) => (
