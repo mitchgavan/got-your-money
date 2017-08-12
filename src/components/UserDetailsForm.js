@@ -9,7 +9,7 @@ export default ({ onAddClick, onRemoveClick }) => (
     <label>
       <Text fontSize={3}>Stuff paid for this week</Text>
       <Button
-        onClick={() => onAddClick('Dinner', 23)}
+        onClick={() => onAddClick('Dinner', 23.7)}
         type="button"
         bg="green"
       >

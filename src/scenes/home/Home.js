@@ -4,8 +4,8 @@ import { Box, Flex } from 'grid-styled'
 import UserDetailsForm from '../../components/UserDetailsForm'
 import ExpenseItem from '../../components/ExpenseItem'
 import ButtonLink from '../../components/ButtonLink'
-import Text from '../../components/Text'
 import Container from '../../components/Container'
+import ExpenseTotal from './ExpenseTotal'
 
 const getTotalCost = compose(sum, pluck('cost'))
 
@@ -18,6 +18,7 @@ export default ({
   items
 }) => (
   <Container>
+    <ExpenseTotal total={getTotalCost(items).toFixed(2)} />
     <Box p={3}>
       <ButtonLink onClick={() => changePage()}>
         Go to about page via redux
@@ -30,8 +31,5 @@ export default ({
     <Flex wrap="wrap">
       {map(renderItems, items)}
     </Flex>
-    <Text>
-      Total: ${getTotalCost(items).toFixed(2)}
-    </Text>
   </Container>
 )
