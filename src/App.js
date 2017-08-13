@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import theme from './theme';
 import Home from './scenes/home'
 import About from './scenes/about'
+import AddExpense from './scenes/addExpense'
 import TopBar from './components/TopBar'
 
 
@@ -16,6 +17,7 @@ class App extends Component {
           <TopBar />
           <main>
             <Route exact path="/" component={Home} />
+            <Route exact path="/add-expense" component={AddExpense} />
             <Route exact path="/about" component={About} />
           </main>
         </div>

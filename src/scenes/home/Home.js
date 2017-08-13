@@ -12,7 +12,7 @@ const getTotalCost = compose(sum, pluck('cost'))
 const renderItems = item => <ExpenseItem key={item.id} {...item} />
 
 export default ({
-  changePage,
+  goToAddItem,
   addItem,
   removeItem,
   items
@@ -20,11 +20,6 @@ export default ({
   <div>
     <ExpenseTotal total={getTotalCost(items).toFixed(2)} />
     <Container>
-      <Box p={3}>
-        <ButtonLink onClick={() => changePage()}>
-          Go to about page via redux
-        </ButtonLink>
-      </Box>
       <UserDetailsForm
         onAddClick={addItem}
         onRemoveClick={removeItem}
@@ -32,6 +27,11 @@ export default ({
       <Flex wrap="wrap">
         {map(renderItems, items)}
       </Flex>
+      <Box p={3}>
+        <ButtonLink onClick={goToAddItem}>
+          Add a new expense
+        </ButtonLink>
+      </Box>
     </Container>
   </div>
 

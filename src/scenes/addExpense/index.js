@@ -2,8 +2,8 @@ import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { addItem, removeItem } from '../../actions'
-import Home from './Home'
+import { addItem } from '../../actions'
+import AddExpense from './AddExpense'
 
 const mapStateToProps = state => ({
   items: state.items
@@ -11,11 +11,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   addItem,
-  removeItem,
-  goToAddItem: () => push('/add-expense')
+  goToHome: () => push('/')
 }, dispatch)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(AddExpense)
