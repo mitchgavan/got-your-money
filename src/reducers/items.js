@@ -1,4 +1,4 @@
-import { append, slice } from 'ramda'
+import { prepend, slice } from 'ramda'
 
 // const initialState = {
 //   expenseItems: []
@@ -8,7 +8,7 @@ export default (state = [], action) => {
 
   switch (action.type) {
     case 'ADD_ITEM':
-      return append({
+      return prepend({
         id: action.id,
         title: action.title,
         cost: action.cost
