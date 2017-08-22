@@ -1,4 +1,4 @@
-import { prepend, slice } from 'ramda'
+import { prepend, filter } from 'ramda'
 
 // const initialState = {
 //   expenseItems: []
@@ -14,7 +14,8 @@ export default (state = [], action) => {
         cost: action.cost
       }, state)
     case 'REMOVE_ITEM':
-      return slice(0, -1, state)
+      //TODO make more declarative
+      return filter(item => item.id !== action.id, state)
 
     default:
       return state

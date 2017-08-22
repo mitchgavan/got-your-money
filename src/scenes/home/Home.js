@@ -9,13 +9,11 @@ import ExpenseTotal from './ExpenseTotal'
 
 const getTotalCost = compose(sum, pluck('cost'))
 
-const renderItems = item => <ExpenseItem key={item.id} {...item} />
-
 export default ({
   goToAddItem,
   addItem,
   removeItem,
-  items
+  items,
 }) => (
   <div>
     <ExpenseTotal total={getTotalCost(items).toFixed(2)} />
@@ -25,7 +23,13 @@ export default ({
         onRemoveClick={removeItem}
       />
       <Flex wrap="wrap">
-        {map(renderItems, items)}
+        {map(item => (
+          <ExpenseItem
+            key={item.id}
+            onRemoveClick={removeItem}
+            {...item}
+          />
+        ), items)}
       </Flex>
       <Box p={3}>
         <ButtonLink onClick={goToAddItem}>
