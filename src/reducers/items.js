@@ -1,10 +1,16 @@
-import { prepend, filter } from 'ramda'
+import {
+  prepend,
+  reject,
+  equals,
+} from 'ramda'
 
 // const initialState = {
 //   expenseItems: []
 // }
 
 export default (state = [], action) => {
+
+  const getItem = item => equals(item.id, action.id)
 
   switch (action.type) {
     case 'ADD_ITEM':
@@ -14,8 +20,7 @@ export default (state = [], action) => {
         cost: action.cost
       }, state)
     case 'REMOVE_ITEM':
-      //TODO make more declarative
-      return filter(item => item.id !== action.id, state)
+      return reject(getItem, state)
 
     default:
       return state
