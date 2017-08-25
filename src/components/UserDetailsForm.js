@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import uuidv1 from 'uuid/v1'
 import Text from './Text'
 import Button from './Button'
 
@@ -11,7 +12,7 @@ export default ({ onAddClick, onRemoveClick }) => (
   <Form>
     <Text fontSize={3}>Stuff paid for this week</Text>
     <Button
-      onClick={() => onAddClick('Dinner', 23.7)}
+      onClick={() => onAddClick('Dinner', 23.7, uuidv1())}
       type="button"
       bg="green"
     >

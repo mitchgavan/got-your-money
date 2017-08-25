@@ -2,10 +2,10 @@
 
 import uuidv1 from 'uuid/v1'
 
-export const addItem = (title, cost) => {
+export const addItem = (title, cost, id) => {
   return {
     type: 'ADD_ITEM',
-    id: uuidv1(),
+    id,
     title,
     cost: cost.toFixed(2)
   }
