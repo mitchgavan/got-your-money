@@ -1,10 +1,11 @@
-// let nextItemId = 0
-
-import uuidv1 from 'uuid/v1'
+import {
+  ADD_ITEM,
+  REMOVE_ITEM
+} from './types'
 
 export const addItem = (title, cost, id) => {
   return {
-    type: 'ADD_ITEM',
+    type: ADD_ITEM,
     id,
     title,
     cost: cost.toFixed(2)
@@ -13,7 +14,7 @@ export const addItem = (title, cost, id) => {
 
 export const removeItem = (id) => {
   return {
-    type: 'REMOVE_ITEM',
+    type: REMOVE_ITEM,
     id,
   }
 }

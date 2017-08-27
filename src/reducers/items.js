@@ -4,6 +4,10 @@ import {
   equals,
 } from 'ramda'
 import createReducer from '../utilities/createReducer'
+import {
+  ADD_ITEM,
+  REMOVE_ITEM
+} from '../actions/types'
 
 const initialState = []
 
@@ -17,6 +21,6 @@ const removeItem = (state, action) =>
   reject(item => equals(item.id, action.id), state)
 
 export default createReducer(initialState, {
-  ADD_ITEM: addItem,
-  REMOVE_ITEM: removeItem
+  [ADD_ITEM]: addItem,
+  [REMOVE_ITEM]: removeItem
 });
