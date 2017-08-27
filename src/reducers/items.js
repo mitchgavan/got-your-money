@@ -1,7 +1,7 @@
 import {
   prepend,
   reject,
-  equals,
+  eqProps
 } from 'ramda'
 import createReducer from '../utilities/createReducer'
 import {
@@ -18,7 +18,7 @@ const addItem = (state, action) => prepend({
 }, state)
 
 const removeItem = (state, action) =>
-  reject(item => equals(item.id, action.id), state)
+  reject(eqProps('id', action), state)
 
 export default createReducer(initialState, {
   [ADD_ITEM]: addItem,
