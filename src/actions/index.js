@@ -18,3 +18,12 @@ export const removeItem = (id) => {
     id,
   }
 }
+
+export const addItemCustom = (values, id) => {
+  return {
+    type: ADD_ITEM,
+    id,
+    title: values.itemName,
+    cost: values.cost,
+  }
+}

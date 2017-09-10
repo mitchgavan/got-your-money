@@ -1,8 +1,13 @@
 import React from 'react';
 import uuidv1 from 'uuid/v1'
 import Button from '../../components/Button'
+import ExpenseForm from './ExpenseForm'
 
-export default ({ addItem, goToHome }) => (
+export default ({
+  addItem,
+  goToHome,
+  addItemCustom
+}) => (
   <div>
     <Button
       onClick={() => {
@@ -24,5 +29,6 @@ export default ({ addItem, goToHome }) => (
     >
       Dinner
     </Button>
+    <ExpenseForm onSubmit={addItemCustom} />
   </div>
 )
