@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
-import uuid from 'uuid/v1'
 
 class ExpenseForm extends Component {
   constructor(props) {
@@ -13,8 +12,8 @@ class ExpenseForm extends Component {
   }
 
   submit = (values) => {
-    this.props.handleSubmit(values, uuid())
-    this.setState({ submitted: true})
+    this.props.handleSubmit(values)
+    this.setState({ submitted: true })
   }
 
   render() {

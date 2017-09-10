@@ -1,3 +1,4 @@
+import uuid from 'uuid/v1'
 import {
   ADD_ITEM,
   REMOVE_ITEM
@@ -12,11 +13,11 @@ import {
 //   }
 // }
 
-export const addItem = (values, id) => {
+export const addItem = (values) => {
   return {
     type: ADD_ITEM,
     payload: {
-      id,
+      id: uuid(),
       title: values.title,
       cost: values.cost,
     }
