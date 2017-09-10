@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { pick } from 'ramda'
 
-import { addItem, addItemCustom } from '../../actions'
+import { addItem } from '../../actions'
 import AddExpense from './AddExpense'
 
 // const mapStateToProps = state => ({
@@ -13,7 +13,6 @@ const mapStateToProps = pick(['items'])
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   addItem,
-  addItemCustom,
   goToHome: () => push('/'),
 }, dispatch)
 

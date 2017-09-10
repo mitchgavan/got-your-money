@@ -26,8 +26,8 @@ class ExpenseForm extends Component {
     return (
       <form onSubmit={this.submit}>
         <div>
-          <label htmlFor="itemName">Name</label>
-          <Field name="itemName" component="input" type="text" />
+          <label htmlFor="title">Name</label>
+          <Field name="title" component="input" type="text" />
           <label htmlFor="cost">Cost</label>
           <Field name="cost" component="input" type="text" />
           <button type="submit">submit</button>

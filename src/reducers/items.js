@@ -12,9 +12,9 @@ import {
 const initialState = []
 
 const addItem = (state, action) => prepend({
-  id: action.id,
-  title: action.title,
-  cost: action.cost
+  id: action.payload.id,
+  title: action.payload.title,
+  cost: action.payload.cost
 }, state)
 
 const removeItem = (state, action) =>

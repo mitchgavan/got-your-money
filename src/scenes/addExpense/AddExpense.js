@@ -3,15 +3,25 @@ import uuidv1 from 'uuid/v1'
 import Button from '../../components/Button'
 import ExpenseForm from './ExpenseForm'
 
+// TODO move these
+const itemCoffee = {
+  title: 'Coffee',
+  cost: 4
+}
+
+const itemDinner = {
+  title: 'Dinner',
+  cost: 23
+}
+
 export default ({
   addItem,
   goToHome,
-  addItemCustom
 }) => (
   <div>
     <Button
       onClick={() => {
-        addItem('Coffee', 4, uuidv1())
+        addItem(itemCoffee, uuidv1())
         goToHome && goToHome()
       }}
       type="button"
@@ -21,7 +31,7 @@ export default ({
     </Button>
     <Button
       onClick={() => {
-        addItem('Dinner', 23.7, uuidv1())
+        addItem(itemDinner, uuidv1())
         goToHome && goToHome()
       }}
       type="button"
@@ -29,6 +39,6 @@ export default ({
     >
       Dinner
     </Button>
-    <ExpenseForm onSubmit={addItemCustom} />
+    <ExpenseForm onSubmit={addItem} />
   </div>
 )
