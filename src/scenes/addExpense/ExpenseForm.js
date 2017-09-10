@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
+import TextInput from '../../components/TextInput'
+import Button from '../../components/Button'
 
 class ExpenseForm extends Component {
   constructor(props) {
@@ -25,11 +27,9 @@ class ExpenseForm extends Component {
     return (
       <form onSubmit={this.submit}>
         <div>
-          <label htmlFor="title">Name</label>
-          <Field name="title" component="input" type="text" />
-          <label htmlFor="cost">Cost</label>
-          <Field name="cost" component="input" type="text" />
-          <button type="submit">submit</button>
+          <TextInput name="title" displayName="Title" />
+          <TextInput name="cost" displayName="Cost" />
+          <Button type="submit">submit</Button>
         </div>
       </form>
     )
