@@ -20,7 +20,7 @@ const InputField = styled(Field)`
   height: 2.5rem;
   margin: 0 0 1rem;
   padding: 0.5rem;
-  border: 1px solid #cacaca;
+  border: 0;
   background-color: ${theme.colors.white};
   font-family: inherit;
   font-size: 1rem;

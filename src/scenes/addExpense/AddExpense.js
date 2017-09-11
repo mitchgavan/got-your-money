@@ -1,5 +1,6 @@
 import React from 'react';
 import uuidv1 from 'uuid/v1'
+import Container from '../../components/Container'
 import Button from '../../components/Button'
 import ExpenseForm from './ExpenseForm'
 
@@ -18,7 +19,7 @@ export default ({
   addItem,
   goToHome,
 }) => (
-  <div>
+  <Container p={2}>
     <Button
       onClick={() => {
         addItem(itemCoffee, uuidv1())
@@ -40,5 +41,5 @@ export default ({
       Dinner
     </Button>
     <ExpenseForm onSubmit={addItem} />
-  </div>
+  </Container>
 )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { Field, reduxForm } from 'redux-form'
+import { reduxForm } from 'redux-form'
 import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
 
