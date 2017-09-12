@@ -2,10 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { space, width, fontSize, color } from 'styled-system'
 import { Field } from 'redux-form'
+import { compose, withState, withHandlers } from 'recompose';
 import theme from '../theme'
 
 const Label = styled.label`
   display: block;
+  position: relative;
   margin: 0;
   font-size: 0.875rem;
   font-weight: normal;
@@ -35,16 +37,45 @@ const InputField = styled(Field)`
   ${color}
 `
 
-export default ({
+const LabelText = styled.span`
+  position: absolute;
+  display: block;
+  left: 10px;
+  font-size: 14px;
+  top: ${props => props.isActive ? '-20px' : '8px'};
+`
+
+const withToggle = compose(
+  withState('isActive', 'setActive', false),
+  withHandlers({
+    onFocus: props => event => {
+      props.setActive(true)
+    },
+    onBlur: props => event => {
+      if (!event.target.value) {
+        props.setActive(false)
+      }
+    }
+  })
+)
+
+export default withToggle(({
   name,
-  displayName
+  displayName,
+  onFocus,
+  onBlur,
+  isActive
 }) => (
   <Label>
-    {displayName}
+    <LabelText isActive={isActive}>
+      {displayName}
+    </LabelText>
     <InputField
       name={name}
       component="input"
       type="text"
+      onFocus={onFocus}
+      onBlur={onBlur}
     />
   </Label>
-)
+))
