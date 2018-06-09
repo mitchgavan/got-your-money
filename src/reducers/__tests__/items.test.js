@@ -9,14 +9,16 @@ test('it adds an item', () => {
 
   const action = {
     type: ADD_ITEM,
-    id: 0,
-    title: 'Food',
-    cost: '$23.00'
+    payload: {
+      id: 1,
+      title: 'Food',
+      cost: '$23.00'
+    }
   }
 
   const stateAfter = [
     {
-      id: 0,
+      id: 1,
       title: 'Food',
       cost: '$23.00'
     }
@@ -28,9 +30,9 @@ test('it adds an item', () => {
 test('it removes an item', () => {
   const action = {
     type: REMOVE_ITEM,
-    id: 23,
-    title: 'Food',
-    cost: '$47.00'
+    payload: {
+      id: 23,
+    }
   }
 
   const stateBefore = [

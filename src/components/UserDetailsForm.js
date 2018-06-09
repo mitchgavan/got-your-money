@@ -12,7 +12,11 @@ export default ({ onAddClick, onRemoveClick }) => (
   <Form>
     <Text fontSize={3}>Stuff paid for this week</Text>
     <Button
-      onClick={() => onAddClick('Dinner', 23.7, uuidv1())}
+      onClick={() => onAddClick({
+        title: 'Dinner', 
+        cost: 23.7, 
+        id: uuidv1()
+      })}
       type="button"
       bg="green"
     >

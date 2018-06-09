@@ -11,16 +11,17 @@ import {
 
 const initialState = []
 
-const addItem = (state, action) => prepend({
-  id: action.payload.id,
-  title: action.payload.title,
-  cost: action.payload.cost
-}, state)
+const addItem = (state, { payload }) =>
+  prepend({
+    id: payload.id,
+    title: payload.title,
+    cost: payload.cost
+  }, state)
 
-const removeItem = (state, action) =>
-  reject(eqProps('id', action), state)
+const removeItem = (state, { payload }) =>
+  reject(eqProps('id', payload), state)
 
 export default createReducer(initialState, {
   [ADD_ITEM]: addItem,
   [REMOVE_ITEM]: removeItem
-});
+})

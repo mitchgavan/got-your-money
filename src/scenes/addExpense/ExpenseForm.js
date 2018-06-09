@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { reduxForm } from 'redux-form'
+import uuidv1 from 'uuid/v1'
 import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
 
@@ -16,6 +17,10 @@ class ExpenseForm extends Component {
   submit = (values) => {
     this.props.handleSubmit(values)
     this.setState({ submitted: true })
+  }
+
+  componentWillMount() {
+    this.props.initialize({ id: uuidv1() })
   }
 
   render() {

@@ -6,11 +6,13 @@ import ExpenseForm from './ExpenseForm'
 
 // TODO move these
 const itemCoffee = {
+  id: uuidv1(),
   title: 'Coffee',
   cost: 4
 }
 
 const itemDinner = {
+  id: uuidv1(),
   title: 'Dinner',
   cost: 23
 }
@@ -22,7 +24,7 @@ export default ({
   <Container p={2}>
     <Button
       onClick={() => {
-        addItem(itemCoffee, uuidv1())
+        addItem(itemCoffee)
         goToHome && goToHome()
       }}
       type="button"
@@ -32,7 +34,7 @@ export default ({
     </Button>
     <Button
       onClick={() => {
-        addItem(itemDinner, uuidv1())
+        addItem(itemDinner)
         goToHome && goToHome()
       }}
       type="button"
