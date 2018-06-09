@@ -26,7 +26,7 @@ export default ({
       <Text fontSize={2}>
         {title} <InlineText color="blue">${cost}</InlineText>
       </Text>
-      <ButtonLink onClick={() => onRemoveClick({ id })}>
+      <ButtonLink onClick={onRemoveClick}>
         Remove
       </ButtonLink>
     </Block>

@@ -9,34 +9,35 @@ import ExpenseTotal from './ExpenseTotal'
 
 const getTotalCost = compose(sum, pluck('cost'))
 
-export default ({
-  goToAddItem,
-  addItem,
-  removeItem,
-  items,
-}) => (
-  <div>
-    <ExpenseTotal total={getTotalCost(items).toFixed(2)} />
-    <Container>
-      <UserDetailsForm
-        onAddClick={addItem}
-        onRemoveClick={removeItem}
-      />
-      <Flex wrap="wrap">
-        {map(item => (
-          <ExpenseItem
-            key={item.id}
-            onRemoveClick={removeItem}
-            {...item}
-          />
-        ), items)}
-      </Flex>
-      <Box p={3}>
-        <ButtonLink onClick={goToAddItem}>
-          Add a new expense
-        </ButtonLink>
-      </Box>
-    </Container>
-  </div>
+export default class Home extends React.Component {
 
-)
+  handleRemoveClick = id => this.props.removeItem({ id })
+
+  render() {
+    return (
+        <div>
+          <ExpenseTotal total={getTotalCost(this.props.items).toFixed(2)} />
+          <Container>
+            <UserDetailsForm
+              onAddClick={this.props.addItem}
+              onRemoveClick={this.props.removeItem}
+            />
+            <Flex wrap="wrap">
+              {map(item => (
+                <ExpenseItem
+                  key={item.id}
+                  onRemoveClick={() => this.handleRemoveClick(item.id)}
+                  {...item}
+                />
+              ), this.props.items)}
+            </Flex>
+            <Box p={3}>
+              <ButtonLink onClick={this.props.goToAddItem}>
+                Add a new expense
+              </ButtonLink>
+            </Box>
+          </Container>
+        </div>
+    )
+  }
+}

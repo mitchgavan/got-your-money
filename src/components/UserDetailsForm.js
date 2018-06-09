@@ -8,7 +8,7 @@ const Form = styled.form`
   text-align: center;
 `
 
-export default ({ onAddClick, onRemoveClick }) => (
+export default ({ onAddClick }) => (
   <Form>
     <Text fontSize={3}>Stuff paid for this week</Text>
     <Button
