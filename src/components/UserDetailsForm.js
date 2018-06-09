@@ -22,11 +22,5 @@ export default ({ onAddClick, onRemoveClick }) => (
     >
       Add item
     </Button>
-    <Button
-      onClick={() => onRemoveClick(1)}
-      type="button"
-    >
-      Remove item
-    </Button>
   </Form>
-);
+)
