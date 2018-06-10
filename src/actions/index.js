@@ -1,6 +1,7 @@
 import {
   ADD_ITEM,
-  REMOVE_ITEM
+  REMOVE_ITEM,
+  SET_WEEK,
 } from './types'
 
 export const addItem = ({ id, title, cost, date }) => {
@@ -21,5 +22,12 @@ export const removeItem = ({ id }) => {
     payload: {
       id,
     }
+  }
+}
+
+export const setWeek = ({ startOfWeek }) => {
+  return {
+    type: SET_WEEK,
+    payload: { startOfWeek }
   }
 }

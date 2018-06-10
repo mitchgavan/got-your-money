@@ -9,9 +9,9 @@ import theme from '../theme'
 const { colors } = theme
 
 export default ({
-  id,
   title,
   cost,
+  date,
   onRemoveClick
 }) => (
   <Box
@@ -25,6 +25,9 @@ export default ({
     >
       <Text fontSize={2}>
         {title} <InlineText color="blue">${cost}</InlineText>
+      </Text>
+      <Text fontSize={1}>
+        {date}
       </Text>
       <ButtonLink onClick={onRemoveClick}>
         Remove

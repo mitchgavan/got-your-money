@@ -8,9 +8,10 @@ const Form = styled.form`
   text-align: center;
 `
 
-export default ({ onAddClick }) => (
+export default ({ onAddClick, startOfWeek }) => (
   <Form>
     <Text fontSize={3}>Stuff paid for this week</Text>
+    <Text fontSize={2}>Current week: {startOfWeek}</Text>
     <Button
       onClick={() => onAddClick({
         title: 'Dinner', 
