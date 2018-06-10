@@ -1,23 +1,22 @@
 import React from 'react'
-import { compose, map, pluck, sum } from 'ramda'
+import { map } from 'ramda'
 import { Box, Flex } from 'grid-styled'
 import UserDetailsForm from '../../components/UserDetailsForm'
 import ExpenseItem from '../../components/ExpenseItem'
 import ButtonLink from '../../components/ButtonLink'
 import Container from '../../components/Container'
 import ExpenseTotal from './ExpenseTotal'
-
-const getTotalCost = compose(sum, pluck('cost'))
+import { getTotalCost } from '../../utilities/calculations'
 
 export default class Home extends React.Component {
 
-  handleRemoveClick = id =>this.props.removeItem({ id })
+  handleRemoveClick = id => this.props.removeItem({ id })
 
   render() {
     return (
         <div>
           <ExpenseTotal
-            total={getTotalCost(this.props.items).toFixed(2)} 
+            total={getTotalCost(this.props.items)} 
           />
           <Container>
             <UserDetailsForm
