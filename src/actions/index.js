@@ -3,13 +3,14 @@ import {
   REMOVE_ITEM
 } from './types'
 
-export const addItem = ({ id, title, cost }) => {
+export const addItem = ({ id, title, cost, date }) => {
   return {
     type: ADD_ITEM,
     payload: {
       id,
       title,
       cost,
+      date,
     }
   }
 }

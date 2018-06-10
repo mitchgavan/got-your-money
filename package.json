@@ -15,6 +15,7 @@
     "react-scripts": "1.0.10",
     "recompose": "^0.25.0",
     "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
     "redux-form": "^7.0.4",
     "redux-localstorage": "^0.4.1",
     "redux-thunk": "^2.2.0",
