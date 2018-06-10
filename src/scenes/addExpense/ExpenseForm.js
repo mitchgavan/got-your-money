@@ -23,7 +23,7 @@ class ExpenseForm extends Component {
   componentWillMount() {
     this.props.initialize({ 
       id: uuidv1(),
-      date: format(new Date(), 'DD/MM/YYYY')
+      date: format(new Date(), 'dd/MM/yyyy')
     })
   }
 
