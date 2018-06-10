@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "date-fns": "^1.29.0",
     "grid-styled": "^2.0.0-10",
     "normalize.css": "^7.0.0",
     "ramda": "^0.24.1",

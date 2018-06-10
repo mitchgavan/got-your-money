@@ -15,7 +15,8 @@ const addItem = (state, { payload }) =>
   prepend({
     id: payload.id,
     title: payload.title,
-    cost: payload.cost
+    cost: payload.cost,
+    date: payload.date,
   }, state)
 
 const removeItem = (state, { payload }) =>
