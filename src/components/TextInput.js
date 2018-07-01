@@ -1,8 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import { space, width, fontSize, color } from 'styled-system'
-import { Field } from 'redux-form'
-import { compose, withState, withHandlers } from 'recompose';
 import theme from '../theme'
 
 const Label = styled.label`
@@ -15,7 +13,7 @@ const Label = styled.label`
   color: #0a0a0a;
 `
 
-const InputField = styled(Field)`
+const InputField = styled.input`
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -45,37 +43,43 @@ const LabelText = styled.span`
   top: ${props => props.isActive ? '-20px' : '8px'};
 `
 
-const withToggle = compose(
-  withState('isActive', 'setActive', false),
-  withHandlers({
-    onFocus: props => event => {
-      props.setActive(true)
-    },
-    onBlur: props => event => {
-      if (!event.target.value) {
-        props.setActive(false)
-      }
-    }
-  })
-)
+export default class TextInput extends Component {
+  state = {
+    isActive: false,
+  }
 
-export default withToggle(({
-  name,
-  displayName,
-  onFocus,
-  onBlur,
-  isActive
-}) => (
-  <Label>
-    <LabelText isActive={isActive}>
-      {displayName}
-    </LabelText>
-    <InputField
-      name={name}
-      component="input"
-      type="text"
-      onFocus={onFocus}
-      onBlur={onBlur}
-    />
-  </Label>
-))
+  componentDidMount() {
+    this.setState({
+      isActive: Boolean(this.props.value),
+    })
+  }
+
+  handleBlur = event => {
+    if (!event.target.value) {
+      this.setState({ isActive: false })
+    }
+  }
+
+  handleFocus = event => {
+    this.setState({ isActive: true })
+  }
+
+  render() {
+    return (
+      <Label>
+        <LabelText isActive={this.state.isActive}>
+          {this.props.displayName}
+        </LabelText>
+        <InputField
+          name={this.props.name}
+          type="text"
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          value={this.props.value || ''}
+          onChange={this.props.onChange}
+        />
+      </Label>
+    )
+  }
+
+}

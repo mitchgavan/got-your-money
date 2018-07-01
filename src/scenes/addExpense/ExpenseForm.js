@@ -1,29 +1,34 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { reduxForm } from 'redux-form'
 import uuidv1 from 'uuid/v1'
 import { format } from 'date-fns'
 import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
 
 class ExpenseForm extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      submitted: false
-    }
+  state = {
+    submitted: false,
+    title: '',
+    cost: '',
+    date: format(new Date(), 'dd/MM/yyyy')
   }
 
-  submit = (values) => {
-    this.props.handleSubmit(values)
+  handleSubmit = e => {
+    e.preventDefault()
+
+    this.props.onSubmit({
+      id: uuidv1(),
+      title: this.state.title,
+      cost: this.state.cost,
+      date: this.state.date
+    })
+
     this.setState({ submitted: true })
   }
 
-  componentWillMount() {
-    this.props.initialize({ 
-      id: uuidv1(),
-      date: format(new Date(), 'dd/MM/yyyy')
+  handleChange = e => {
+    this.setState({ 
+      [e.target.name]: e.target.value
     })
   }
 
@@ -34,11 +39,26 @@ class ExpenseForm extends Component {
     }
 
     return (
-      <form onSubmit={this.submit}>
+      <form onSubmit={this.handleSubmit}>
         <div>
-          <TextInput name="title" displayName="Title" />
-          <TextInput name="cost" displayName="Cost" />
-          <TextInput name="date" displayName="Date" />
+          <TextInput 
+            name="title" 
+            displayName="Title"
+            value={this.state.title}
+            onChange={this.handleChange}
+          />
+          <TextInput 
+            name="cost" 
+            displayName="Cost"
+            value={this.state.cost}
+            onChange={this.handleChange}
+          />
+          <TextInput 
+            name="date" 
+            displayName="Date"
+            value={this.state.date}
+            onChange={this.handleChange}
+          />
           <Button type="submit">submit</Button>
         </div>
       </form>
@@ -46,7 +66,4 @@ class ExpenseForm extends Component {
   }
 }
 
-export default reduxForm({
-  // a unique name for the form
-  form: 'expense'
-})(ExpenseForm)
+export default ExpenseForm
