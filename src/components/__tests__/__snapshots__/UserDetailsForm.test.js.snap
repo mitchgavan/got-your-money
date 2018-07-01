@@ -7,18 +7,20 @@ exports[`It renders correctly 1`] = `
   >
     Stuff paid for this week
   </styled.p>
+  <styled.p
+    fontSize={2}
+  >
+    Current week: 
+    Invalid Date
+     - 
+    Invalid Date
+  </styled.p>
   <styled.button
     bg="green"
     onClick={[Function]}
     type="button"
   >
     Add item
-  </styled.button>
-  <styled.button
-    onClick={[Function]}
-    type="button"
-  >
-    Remove item
   </styled.button>
 </styled.form>
 `;
