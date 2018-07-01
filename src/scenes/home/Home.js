@@ -1,8 +1,8 @@
 import React from 'react'
 import { map } from 'ramda'
-import { Box, Flex } from 'grid-styled'
+import { Flex } from 'grid-styled'
 import { startOfWeek } from 'date-fns/esm'
-import UserDetailsForm from '../../components/UserDetailsForm'
+import WeeklySummary from './WeeklySummary'
 import ExpenseItem from '../../components/ExpenseItem'
 import ButtonLink from '../../components/ButtonLink'
 import Container from '../../components/Container'
@@ -26,11 +26,16 @@ export default class Home extends React.Component {
             total={getTotalCost(this.props.items)} 
           />
           <Container>
-            <UserDetailsForm
+            <WeeklySummary
               onAddClick={this.props.addItem}
               onRemoveClick={this.props.removeItem}
               startOfWeek={this.props.date.startOfWeek}
             />
+            <Flex p={3} justifyContent='center'>
+              <ButtonLink onClick={this.props.goToAddItem}>
+                Add a new expense
+              </ButtonLink>
+            </Flex>
             <Flex wrap="wrap">
               {map(item => (
                 <ExpenseItem
@@ -40,11 +45,6 @@ export default class Home extends React.Component {
                 />
               ), this.props.items)}
             </Flex>
-            <Box p={3}>
-              <ButtonLink onClick={this.props.goToAddItem}>
-                Add a new expense
-              </ButtonLink>
-            </Box>
           </Container>
         </div>
     )
