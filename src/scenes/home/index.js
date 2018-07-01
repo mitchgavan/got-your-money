@@ -6,10 +6,11 @@ import {
   removeItem, 
   setWeek 
 } from '../../actions'
+import { getItemsOrderedByDate } from '../../selectors/itemsSelectors'
 import Home from './Home'
 
 const mapStateToProps = state => ({
-  items: state.items,
+  items: getItemsOrderedByDate(state),
   date: state.date,
 })
 

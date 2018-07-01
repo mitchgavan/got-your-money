@@ -1,4 +1,5 @@
 import React from 'react'
+import { format } from 'date-fns'
 import { Box } from 'grid-styled'
 import Text from './Text'
 import InlineText from './InlineText'
@@ -27,7 +28,7 @@ export default ({
         {title} <InlineText color="blue">${cost}</InlineText>
       </Text>
       <Text fontSize={1}>
-        {date}
+        {format(date, 'dd/MM/yyyy')}
       </Text>
       <ButtonLink onClick={onRemoveClick}>
         Remove

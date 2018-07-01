@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import uuidv1 from 'uuid/v1'
-import { format } from 'date-fns'
+import { format, parse } from 'date-fns'
 import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
 
@@ -16,11 +16,17 @@ class ExpenseForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
 
+    const parsedDate = parse(
+      this.state.date,
+      'dd/MM/yyyy',
+      new Date()
+    )
+
     this.props.onSubmit({
       id: uuidv1(),
       title: this.state.title,
       cost: this.state.cost,
-      date: this.state.date
+      date: parsedDate
     })
 
     this.setState({ submitted: true })
