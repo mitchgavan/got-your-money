@@ -6,12 +6,16 @@ import {
   removeItem, 
   setWeek 
 } from '../../actions'
-import { getItemsOrderedByDate } from '../../selectors/itemsSelectors'
+import {
+  getItemsOrderedByDate,
+  getItemsForCurrentWeek
+} from '../../selectors/itemsSelectors'
 import Home from './Home'
 
 const mapStateToProps = state => ({
-  items: getItemsOrderedByDate(state),
   date: state.date,
+  items: getItemsOrderedByDate(state),
+  visibleItems: getItemsForCurrentWeek(state),
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

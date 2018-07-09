@@ -43,7 +43,7 @@ export default class Home extends React.Component {
                   onRemoveClick={() => this.handleRemoveClick(item.id)}
                   {...item}
                 />
-              ), this.props.items)}
+              ), this.props.visibleItems)}
             </Flex>
           </Container>
         </div>
