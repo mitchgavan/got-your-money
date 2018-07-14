@@ -3,17 +3,19 @@ import { connect } from 'react-redux'
 import { 
   addItem, 
   removeItem, 
-  setWeek 
-} from '../../actions'
+} from '../../actions/items'
+import { setWeek } from '../../actions/date'
 import {
   getItemsOrderedByDate,
-  getItemsForCurrentWeek
+  getItemsForCurrentWeek,
+  getItemsTotalCostForCurrentWeek,
 } from '../../selectors/itemsSelectors'
 import Home from './Home'
 
 const mapStateToProps = state => ({
   date: state.date,
   items: getItemsOrderedByDate(state),
+  itemsTotalCostForCurrentWeek: getItemsTotalCostForCurrentWeek(state),
   visibleItems: getItemsForCurrentWeek(state),
 })
 

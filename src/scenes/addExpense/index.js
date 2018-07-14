@@ -1,6 +1,6 @@
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
-import { addItem } from '../../actions'
+import { addItem } from '../../actions/items'
 import AddExpense from './AddExpense'
 
 const mapDispatchToProps = {

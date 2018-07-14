@@ -22,7 +22,7 @@ export default ({ total }) => (
         color={colors.white}
         mb={2}
       >
-        Total Expenses
+        Total Expenses This Week
       </HeadingSmall>
       <Text
         fontSize={5}

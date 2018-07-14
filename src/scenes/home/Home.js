@@ -7,7 +7,6 @@ import ExpenseItem from '../../components/ExpenseItem'
 import ButtonLink from '../../components/ButtonLink'
 import Container from '../../components/Container'
 import ExpenseTotal from './ExpenseTotal'
-import { getTotalCost } from '../../utilities/calculations'
 
 export default class Home extends React.Component {
 
@@ -23,7 +22,7 @@ export default class Home extends React.Component {
     return (
         <div>
           <ExpenseTotal
-            total={getTotalCost(this.props.items)} 
+            total={this.props.itemsTotalCostForCurrentWeek} 
           />
           <Container>
             <WeeklySummary
