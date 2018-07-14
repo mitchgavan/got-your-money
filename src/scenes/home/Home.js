@@ -1,20 +1,14 @@
 import React from 'react'
 import { map } from 'ramda'
 import { Flex } from 'grid-styled'
-import { startOfWeek } from 'date-fns/esm'
 import WeeklySummary from './WeeklySummary'
 import ExpenseItem from '../../components/ExpenseItem'
 import ButtonLink from '../../components/ButtonLink'
 import Container from '../../components/Container'
 import ExpenseTotal from './ExpenseTotal'
+import Button from '../../components/Button';
 
 export default class Home extends React.Component {
-
-  componentDidMount() {
-    this.props.setWeek({
-      startOfWeek: startOfWeek(new Date(), { weekStartsOn: 1 })
-    })
-  }
 
   handleRemoveClick = id => this.props.removeItem({ id })
 
@@ -43,6 +37,14 @@ export default class Home extends React.Component {
                   {...item}
                 />
               ), this.props.visibleItems)}
+            </Flex>
+            <Flex p={3} justifyContent='space-between'>
+              <Button onClick={this.props.previousWeek}>
+                Last Week
+              </Button>
+              <Button onClick={this.props.nextWeek}>
+                Next Week
+              </Button>
             </Flex>
           </Container>
         </div>

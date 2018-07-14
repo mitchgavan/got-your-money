@@ -4,7 +4,10 @@ import {
   addItem, 
   removeItem, 
 } from '../../actions/items'
-import { setWeek } from '../../actions/date'
+import { 
+  nextWeek,
+  previousWeek,
+} from '../../actions/date'
 import {
   getItemsOrderedByDate,
   getItemsForCurrentWeek,
@@ -22,7 +25,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   addItem,
   removeItem,
-  setWeek,
+  nextWeek,
+  previousWeek,
   goToAddItem: () => push('/add-expense')
 }
 
