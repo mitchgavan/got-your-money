@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { filter, gt, prop, sort } from 'ramda'
+import { and, filter, gte, lt, prop, sort } from 'ramda'
 import { differenceInDays } from 'date-fns'
 import { getTotalCost } from '../utilities/calculations'
 
@@ -16,8 +16,13 @@ export const getItemsOrderedByDate = createSelector(
 export const getItemsForCurrentWeek = createSelector(
   [ getDate, getItemsOrderedByDate ],
   (date, items) => {
-    const isItemFromCurrentWeek = item => 
-    gt(differenceInDays(item.date, date.startOfWeek), 0)
+    const isItemFromCurrentWeek = item => {
+      const numberOfDaysSinceStartOfWeek = differenceInDays(item.date, date.startOfWeek)
+      return and(
+        gte(numberOfDaysSinceStartOfWeek, 0),
+        lt(numberOfDaysSinceStartOfWeek, 7)
+      )
+    }
 
     return filter(isItemFromCurrentWeek, items)
   }
