@@ -1,5 +1,4 @@
 import { push } from 'react-router-redux'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { 
   addItem, 
@@ -18,12 +17,12 @@ const mapStateToProps = state => ({
   visibleItems: getItemsForCurrentWeek(state),
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
+const mapDispatchToProps = {
   addItem,
   removeItem,
   setWeek,
   goToAddItem: () => push('/add-expense')
-}, dispatch)
+}
 
 export default connect(
   mapStateToProps,

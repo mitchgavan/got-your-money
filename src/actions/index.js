@@ -4,30 +4,23 @@ import {
   SET_WEEK,
 } from './types'
 
-export const addItem = ({ id, title, cost, date }) => {
+export const addItem = payload => {
   return {
     type: ADD_ITEM,
-    payload: {
-      id,
-      title,
-      cost,
-      date,
-    }
+    payload
   }
 }
 
-export const removeItem = ({ id }) => {
+export const removeItem = payload => {
   return {
     type: REMOVE_ITEM,
-    payload: {
-      id,
-    }
+    payload
   }
 }
 
-export const setWeek = ({ startOfWeek }) => {
+export const setWeek = payload => {
   return {
     type: SET_WEEK,
-    payload: { startOfWeek }
+    payload
   }
 }
