@@ -5,7 +5,7 @@ import { getTotalCost } from '../utilities/calculations'
 
 const dateDiff = (a, b) => new Date(prop('date', b)) - new Date(prop('date', a))
 
-const getItems = state => state.items
+const getItems = state => state.items.items
 const getDate = state => state.date
 
 export const getItemsOrderedByDate = createSelector(

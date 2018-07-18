@@ -2,7 +2,8 @@ import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
 import { 
   addItem, 
-  removeItem, 
+  removeItem,
+  fetchItems
 } from '../../actions/items'
 import { 
   nextWeek,
@@ -27,6 +28,7 @@ const mapDispatchToProps = {
   removeItem,
   nextWeek,
   previousWeek,
+  fetchItems,
   goToAddItem: () => push('/add-expense')
 }
 

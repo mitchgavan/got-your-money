@@ -10,6 +10,10 @@ import Button from '../../components/Button';
 
 export default class Home extends React.Component {
 
+  componentDidMount() {
+    this.props.fetchItems()
+  }
+
   handleRemoveClick = id => this.props.removeItem({ id })
 
   render() {
@@ -32,8 +36,8 @@ export default class Home extends React.Component {
             <Flex wrap="wrap">
               {map(item => (
                 <ExpenseItem
-                  key={item.id}
-                  onRemoveClick={() => this.handleRemoveClick(item.id)}
+                  key={item._id}
+                  onRemoveClick={() => this.handleRemoveClick(item._id)}
                   {...item}
                 />
               ), this.props.visibleItems)}

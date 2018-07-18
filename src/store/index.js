@@ -1,17 +1,21 @@
 import { createStore, applyMiddleware } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
-import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import persistState from 'redux-localstorage'
+import createSagaMiddleware from 'redux-saga'
+import { fetchItemsSaga } from '../sagas'
+
 import rootReducer from '../reducers'
 
 export const history = createHistory()
 
+const sagaMiddleware = createSagaMiddleware()
+
 const initialState = {}
 const enhancers = [persistState()]
 const middleware = [
-  thunk,
+  sagaMiddleware,
   routerMiddleware(history)
 ]
 
@@ -25,5 +29,8 @@ const store = createStore(
   initialState,
   composedEnhancers
 )
+
+// start saga generators
+sagaMiddleware.run(fetchItemsSaga)
 
 export default store
