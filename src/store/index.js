@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import createHistory from 'history/createBrowserHistory'
-import persistState from 'redux-localstorage'
+// import persistState from 'redux-localstorage'
 import createSagaMiddleware from 'redux-saga'
 import { fetchItemsSaga } from '../sagas'
 
@@ -13,7 +13,7 @@ export const history = createHistory()
 const sagaMiddleware = createSagaMiddleware()
 
 const initialState = {}
-const enhancers = [persistState()]
+// const enhancers = [persistState()]
 const middleware = [
   sagaMiddleware,
   routerMiddleware(history)
@@ -21,7 +21,7 @@ const middleware = [
 
 const composedEnhancers = composeWithDevTools(
   applyMiddleware(...middleware),
-  ...enhancers
+  // ...enhancers
 )
 
 const store = createStore(

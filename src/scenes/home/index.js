@@ -14,10 +14,14 @@ import {
   getItemsForCurrentWeek,
   getItemsTotalCostForCurrentWeek,
 } from '../../selectors/itemsSelectors'
+import { createLoadingSelector } from '../../selectors/loadingSelectors';
 import Home from './Home'
+
+const loadingSelector = createLoadingSelector(['FETCH_ITEMS'])
 
 const mapStateToProps = state => ({
   date: state.date,
+  isFetching: loadingSelector(state),
   items: getItemsOrderedByDate(state),
   itemsTotalCostForCurrentWeek: getItemsTotalCostForCurrentWeek(state),
   visibleItems: getItemsForCurrentWeek(state),

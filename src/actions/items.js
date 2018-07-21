@@ -1,7 +1,7 @@
 import {
     ADD_ITEM,
     REMOVE_ITEM,
-    FETCH_ITEMS_REQUESTED,
+    FETCH_ITEMS_REQUEST,
   } from './types'
   
   export const addItem = payload => {
@@ -19,6 +19,6 @@ import {
   }
 
   export const fetchItems = payload => ({
-    type: FETCH_ITEMS_REQUESTED,
+    type: FETCH_ITEMS_REQUEST,
     payload
   })

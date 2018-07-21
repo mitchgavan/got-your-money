@@ -5,6 +5,7 @@ import WeeklySummary from './WeeklySummary'
 import ExpenseItem from '../../components/ExpenseItem'
 import ButtonLink from '../../components/ButtonLink'
 import Container from '../../components/Container'
+import Text from '../../components/Text'
 import ExpenseTotal from './ExpenseTotal'
 import Button from '../../components/Button';
 
@@ -33,6 +34,13 @@ export default class Home extends React.Component {
                 Add a new expense
               </ButtonLink>
             </Flex>
+            {this.props.isFetching &&
+              <Text
+                fontSize={2}
+                m={1}>
+                Loading...
+              </Text>
+            }
             <Flex wrap="wrap">
               {map(item => (
                 <ExpenseItem

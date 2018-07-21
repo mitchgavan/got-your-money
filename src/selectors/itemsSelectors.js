@@ -5,17 +5,26 @@ import { getTotalCost } from '../utilities/calculations'
 
 const dateDiff = (a, b) => new Date(prop('date', b)) - new Date(prop('date', a))
 
-const getItems = state => state.items.items
+const getItems = state => state.items
 const getDate = state => state.date
 
 export const getItemsOrderedByDate = createSelector(
   [ getItems ],
-  (items) => sort(dateDiff, items)
+  (items) => {
+    if (!items) {
+      return []
+    } 
+    return sort(dateDiff, items)
+  }
 )
 
 export const getItemsForCurrentWeek = createSelector(
   [ getDate, getItemsOrderedByDate ],
   (date, items) => {
+    if (!items) {
+      return []
+    }
+
     const isItemFromCurrentWeek = item => {
       const numberOfDaysSinceStartOfWeek = differenceInDays(item.date, date.startOfWeek)
       return and(
@@ -30,10 +39,22 @@ export const getItemsForCurrentWeek = createSelector(
 
 export const getItemsTotalCost = createSelector(
   [ getItems ],
-  getTotalCost
+  (items) => {
+    if (!items) {
+      return 0
+    }
+
+    return getTotalCost(items)
+  }
 )
 
 export const getItemsTotalCostForCurrentWeek = createSelector(
   [ getItemsForCurrentWeek ],
-  getTotalCost
+  (items) => {
+    if (!items) {
+      return 0
+    }
+
+    return getTotalCost(items)
+  }
 )
