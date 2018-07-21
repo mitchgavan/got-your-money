@@ -12,7 +12,7 @@ export const getItemsOrderedByDate = createSelector(
   [ getItems ],
   (items) => {
     if (!items) {
-      return []
+      return null
     } 
     return sort(dateDiff, items)
   }
@@ -22,7 +22,7 @@ export const getItemsForCurrentWeek = createSelector(
   [ getDate, getItemsOrderedByDate ],
   (date, items) => {
     if (!items) {
-      return []
+      return null
     }
 
     const isItemFromCurrentWeek = item => {
@@ -41,9 +41,8 @@ export const getItemsTotalCost = createSelector(
   [ getItems ],
   (items) => {
     if (!items) {
-      return 0
+      return null
     }
-
     return getTotalCost(items)
   }
 )
@@ -52,9 +51,8 @@ export const getItemsTotalCostForCurrentWeek = createSelector(
   [ getItemsForCurrentWeek ],
   (items) => {
     if (!items) {
-      return 0
+      return null
     }
-
     return getTotalCost(items)
   }
 )

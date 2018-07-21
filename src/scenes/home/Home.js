@@ -17,6 +17,40 @@ export default class Home extends React.Component {
 
   handleRemoveClick = id => this.props.removeItem({ id })
 
+  renderExpenses() {
+    if (this.props.isFetching) {
+      return (
+        <Text
+          fontSize={2}
+          m={1}>
+          Loading...
+        </Text>
+      )
+    }
+
+    if (!this.props.visibleItems) {
+      return (
+        <Text
+          fontSize={2}
+          m={1}>
+          No expenses found
+        </Text>
+      )
+    }
+
+    return (
+      <Flex wrap="wrap">
+        {map(item => (
+          <ExpenseItem
+            key={item._id}
+            onRemoveClick={() => this.handleRemoveClick(item._id)}
+            {...item}
+          />
+        ), this.props.visibleItems)}
+      </Flex>
+    )
+  }
+
   render() {
     return (
         <div>
@@ -34,22 +68,7 @@ export default class Home extends React.Component {
                 Add a new expense
               </ButtonLink>
             </Flex>
-            {this.props.isFetching &&
-              <Text
-                fontSize={2}
-                m={1}>
-                Loading...
-              </Text>
-            }
-            <Flex wrap="wrap">
-              {map(item => (
-                <ExpenseItem
-                  key={item._id}
-                  onRemoveClick={() => this.handleRemoveClick(item._id)}
-                  {...item}
-                />
-              ), this.props.visibleItems)}
-            </Flex>
+            {this.renderExpenses()}
             <Flex p={3} justifyContent='space-between'>
               <Button onClick={this.props.previousWeek}>
                 Last Week

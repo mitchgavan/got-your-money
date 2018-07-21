@@ -29,7 +29,7 @@ export default ({ total }) => (
         color={colors.white}
         m={1}
       >
-        ${total.toFixed(2)}
+        ${total ? total.toFixed(2) : 0}
       </Text>
     </BlockGradient>
   </Box>
