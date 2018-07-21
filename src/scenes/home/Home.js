@@ -53,32 +53,32 @@ export default class Home extends React.Component {
 
   render() {
     return (
-        <div>
-          <ExpenseTotal
-            total={this.props.itemsTotalCostForCurrentWeek} 
+      <div>
+        <ExpenseTotal
+          total={this.props.itemsTotalCostForCurrentWeek} 
+        />
+        <Container>
+          <WeeklySummary
+            onAddClick={this.props.addItem}
+            onRemoveClick={this.props.removeItem}
+            startOfWeek={this.props.date.startOfWeek}
           />
-          <Container>
-            <WeeklySummary
-              onAddClick={this.props.addItem}
-              onRemoveClick={this.props.removeItem}
-              startOfWeek={this.props.date.startOfWeek}
-            />
-            <Flex p={3} justifyContent='center'>
-              <ButtonLink onClick={this.props.goToAddItem}>
-                Add a new expense
-              </ButtonLink>
-            </Flex>
-            {this.renderExpenses()}
-            <Flex p={3} justifyContent='space-between'>
-              <Button onClick={this.props.previousWeek}>
-                Last Week
-              </Button>
-              <Button onClick={this.props.nextWeek}>
-                Next Week
-              </Button>
-            </Flex>
-          </Container>
-        </div>
+          <Flex p={3} justifyContent='center'>
+            <ButtonLink onClick={this.props.goToAddItem}>
+              Add a new expense
+            </ButtonLink>
+          </Flex>
+          {this.renderExpenses()}
+          <Flex p={3} justifyContent='space-between'>
+            <Button onClick={this.props.previousWeek}>
+              Last Week
+            </Button>
+            <Button onClick={this.props.nextWeek}>
+              Next Week
+            </Button>
+          </Flex>
+        </Container>
+      </div>
     )
   }
 }
