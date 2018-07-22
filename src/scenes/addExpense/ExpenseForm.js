@@ -63,7 +63,9 @@ class ExpenseForm extends Component {
             value={this.state.date}
             onChange={this.handleChange}
           />
-          <Button type="submit">submit</Button>
+          <Button type="submit">
+            {this.props.isPosting ? 'submitting': 'submit'}
+          </Button>
         </div>
       </form>
     )
