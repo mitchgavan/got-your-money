@@ -1,7 +1,7 @@
 import {
     ADD_ITEM_REQUEST,
-    REMOVE_ITEM,
     FETCH_ITEMS_REQUEST,
+    REMOVE_ITEM_REQUEST,
   } from './types'
   
   export const addItem = payload => {
@@ -13,7 +13,7 @@ import {
   
   export const removeItem = payload => {
     return {
-      type: REMOVE_ITEM,
+      type: REMOVE_ITEM_REQUEST,
       payload
     }
   }

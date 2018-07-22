@@ -6,7 +6,10 @@ import {
     FETCH_ITEMS_SUCCESS,
     ADD_ITEM_SUCCESS,
     ADD_ITEM_ERROR,
-    ADD_ITEM_REQUEST
+    ADD_ITEM_REQUEST,
+    REMOVE_ITEM_SUCCESS,
+    REMOVE_ITEM_ERROR,
+    REMOVE_ITEM_REQUEST
 } from '../actions/types'
 
 // TODO move this to API
@@ -18,11 +21,18 @@ function apiFetchItems() {
     })
 }
 
-function apiPostItem(data) {
+function apiCreateItem(data) {
     return axios({
         method: 'post',
         url: process.env.REACT_APP_ITEMS_ENDPOINT,
         data
+    })
+}
+
+function apiDeleteItem(id) {
+    return axios({
+        method: 'delete',
+        url: `${process.env.REACT_APP_ITEMS_ENDPOINT}/${id}`,
     })
 }
 
@@ -37,10 +47,19 @@ function* fetchItems(action) {
 
 function* addItem(action) {
     try {
-        const response = yield call(apiPostItem, action.payload)
+        const response = yield call(apiCreateItem, action.payload)
         yield put({ type: ADD_ITEM_SUCCESS, payload: response.data })
     } catch (err) {
         yield put({ type: ADD_ITEM_ERROR, payload: 'fail' })
+    }
+}
+
+function* removeItem(action) {
+    try {
+        const response = yield call(apiDeleteItem, action.payload.id)
+        yield put({ type: REMOVE_ITEM_SUCCESS, payload: response.data.item._id })
+    } catch(err) {
+        yield put({ type: REMOVE_ITEM_ERROR, payload: 'fail'})
     }
 }
 
@@ -53,9 +72,14 @@ function* addItemSaga() {
     yield takeEvery(ADD_ITEM_REQUEST, addItem)
 }
 
+function* removeItemSaga() {
+    yield takeEvery(REMOVE_ITEM_REQUEST, removeItem)
+}
+
 export default function* rootSaga() {
     yield all([
         fetchItemsSaga(),
-        addItemSaga()
+        addItemSaga(),
+        removeItemSaga()
     ])
 }
