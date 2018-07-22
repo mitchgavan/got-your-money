@@ -20,6 +20,7 @@ const itemDinner = {
 export default ({
   addItem,
   goToHome,
+  isPosting
 }) => (
   <Container p={2}>
     <Button
@@ -42,6 +43,6 @@ export default ({
     >
       Dinner
     </Button>
-    <ExpenseForm onSubmit={addItem} />
+    <ExpenseForm onSubmit={addItem} isPosting={isPosting} />
   </Container>
 )

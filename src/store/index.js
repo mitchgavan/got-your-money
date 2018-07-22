@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import createHistory from 'history/createBrowserHistory'
 // import persistState from 'redux-localstorage'
 import createSagaMiddleware from 'redux-saga'
-import { fetchItemsSaga } from '../sagas'
+import sagas from '../sagas'
 
 import rootReducer from '../reducers'
 
@@ -31,6 +31,6 @@ const store = createStore(
 )
 
 // start saga generators
-sagaMiddleware.run(fetchItemsSaga)
+sagaMiddleware.run(sagas)
 
 export default store
