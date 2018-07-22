@@ -7,15 +7,21 @@ import ButtonLink from '../../components/ButtonLink'
 import Container from '../../components/Container'
 import Text from '../../components/Text'
 import ExpenseTotal from './ExpenseTotal'
-import Button from '../../components/Button';
+import Button from '../../components/Button'
 
 export default class Home extends React.Component {
+  state = {
+    itemBeingRemoved: null
+  }
 
   componentDidMount() {
     this.props.fetchItems()
   }
 
-  handleRemoveClick = id => this.props.removeItem({ id })
+  handleRemoveClick = id => {
+    this.setState({ itemBeingRemoved: id })
+    this.props.removeItem({ id })
+  }
 
   renderExpenses() {
     if (this.props.isFetching) {
@@ -43,6 +49,7 @@ export default class Home extends React.Component {
         {map(item => (
           <ExpenseItem
             key={item._id}
+            isBeingDeleted={this.props.isDeletingItem && item._id === this.state.itemBeingRemoved}
             onRemoveClick={() => this.handleRemoveClick(item._id)}
             {...item}
           />
@@ -60,7 +67,7 @@ export default class Home extends React.Component {
         <Container>
           <WeeklySummary startOfWeek={this.props.date.startOfWeek} />
           <Flex p={3} justifyContent='center'>
-            <ButtonLink onClick={this.props.goToAddItem}>
+            <ButtonLink onClick={this.props.goToAddItem} bg="green">
               Add a new expense
             </ButtonLink>
           </Flex>

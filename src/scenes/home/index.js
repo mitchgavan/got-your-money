@@ -19,6 +19,7 @@ import Home from './Home'
 const mapStateToProps = state => ({
   date: state.date,
   isFetching: createLoadingSelector(['FETCH_ITEMS'])(state),
+  isDeletingItem: createLoadingSelector(['REMOVE_ITEM'])(state),
   items: getItemsOrderedByDate(state),
   itemsTotalCostForCurrentWeek: getItemsTotalCostForCurrentWeek(state),
   visibleItems: getItemsForCurrentWeek(state),

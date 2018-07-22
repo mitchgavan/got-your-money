@@ -17,9 +17,8 @@ const fetchItemsSuccess = (state, { payload }) => payload
 const addItemSuccess = (state, { payload }) =>
   prepend(payload, state)
 
-const removeItemSuccess = (state, { payload }) => {
-  return reject(propEq('_id', payload), state)
-}
+const removeItemSuccess = (state, { payload }) =>
+  reject(propEq('_id', payload), state)
 
 export default createReducer(initialState, {
   [ADD_ITEM_SUCCESS]: addItemSuccess,

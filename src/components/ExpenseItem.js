@@ -13,7 +13,8 @@ export default ({
   title,
   cost,
   date,
-  onRemoveClick
+  onRemoveClick,
+  isBeingDeleted,
 }) => (
   <Box
     mb={2}
@@ -31,7 +32,7 @@ export default ({
         {format(date, 'dd/MM/yyyy')}
       </Text>
       <ButtonLink onClick={onRemoveClick}>
-        Remove
+        {isBeingDeleted ? 'Removing...' : 'Remove'}
       </ButtonLink>
     </Block>
   </Box>
