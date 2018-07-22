@@ -58,11 +58,7 @@ export default class Home extends React.Component {
           total={this.props.itemsTotalCostForCurrentWeek} 
         />
         <Container>
-          <WeeklySummary
-            onAddClick={this.props.addItem}
-            onRemoveClick={this.props.removeItem}
-            startOfWeek={this.props.date.startOfWeek}
-          />
+          <WeeklySummary startOfWeek={this.props.date.startOfWeek} />
           <Flex p={3} justifyContent='center'>
             <ButtonLink onClick={this.props.goToAddItem}>
               Add a new expense

@@ -1,7 +1,6 @@
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
-import { 
-  addItem, 
+import {
   removeItem,
   fetchItems
 } from '../../actions/items'
@@ -26,7 +25,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  addItem,
   removeItem,
   nextWeek,
   previousWeek,
