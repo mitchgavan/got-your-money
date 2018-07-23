@@ -26,7 +26,7 @@ export default ({
       p={[ 1, 2 ]}
     >
       <Text fontSize={2}>
-        {title} <InlineText color="blue">${cost}</InlineText>
+        {title} <InlineText color="blue">${cost.toFixed(2)}</InlineText>
       </Text>
       <Text fontSize={1}>
         {format(date, 'dd/MM/yyyy')}
