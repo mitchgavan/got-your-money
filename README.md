@@ -3,6 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Stack includes:
 - React
 - Redux
+- Redux Saga
+- Reselect
 - React Router
 - Ramda
 - Styled Components (with Styled System)
