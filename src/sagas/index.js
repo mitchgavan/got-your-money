@@ -1,5 +1,4 @@
 import { all, put, takeEvery, call } from 'redux-saga/effects'
-import axios from 'axios'
 import {
     FETCH_ITEMS_REQUEST,
     FETCH_ITEMS_ERROR,
@@ -11,34 +10,11 @@ import {
     REMOVE_ITEM_ERROR,
     REMOVE_ITEM_REQUEST
 } from '../actions/types'
-
-// TODO move this to API
-// function that makes the api request and returns a Promise for response
-function apiFetchItems() {
-    return axios({
-        method: 'get',
-        url: process.env.REACT_APP_ITEMS_ENDPOINT
-    })
-}
-
-function apiCreateItem(data) {
-    return axios({
-        method: 'post',
-        url: process.env.REACT_APP_ITEMS_ENDPOINT,
-        data
-    })
-}
-
-function apiDeleteItem(id) {
-    return axios({
-        method: 'delete',
-        url: `${process.env.REACT_APP_ITEMS_ENDPOINT}/${id}`,
-    })
-}
+import itemsApi from '../api/itemsApi'
 
 function* fetchItems(action) {
     try {
-        const response = yield call(apiFetchItems)
+        const response = yield call(itemsApi.getAll)
         yield put({ type: FETCH_ITEMS_SUCCESS, payload: response.data })
     } catch (err) {
         yield put({ type: FETCH_ITEMS_ERROR, payload: 'fail' })
@@ -47,7 +23,7 @@ function* fetchItems(action) {
 
 function* addItem(action) {
     try {
-        const response = yield call(apiCreateItem, action.payload)
+        const response = yield call(itemsApi.createItem, action.payload)
         yield put({ type: ADD_ITEM_SUCCESS, payload: response.data })
     } catch (err) {
         yield put({ type: ADD_ITEM_ERROR, payload: 'fail' })
@@ -56,7 +32,7 @@ function* addItem(action) {
 
 function* removeItem(action) {
     try {
-        const response = yield call(apiDeleteItem, action.payload.id)
+        const response = yield call(itemsApi.deleteItem, action.payload.id)
         yield put({ type: REMOVE_ITEM_SUCCESS, payload: response.data.item._id })
     } catch(err) {
         yield put({ type: REMOVE_ITEM_ERROR, payload: 'fail'})
