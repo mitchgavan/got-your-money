@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import items from './items'
-import date from './date'
 import loading from './loadingReducer'
+import date from './dateReducer';
+import items from './itemsReducer';
 
 export default combineReducers({
   routing: routerReducer,
