@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
-import theme from './theme';
+import theme from './theme'
 import Home from './scenes/home'
 import About from './scenes/about'
 import AddExpense from './scenes/addExpense'
 import TopBar from './components/TopBar'
-
 
 class App extends Component {
   render() {

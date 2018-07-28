@@ -14,21 +14,14 @@ const sagaMiddleware = createSagaMiddleware()
 
 const initialState = {}
 // const enhancers = [persistState()]
-const middleware = [
-  sagaMiddleware,
-  routerMiddleware(history)
-]
+const middleware = [sagaMiddleware, routerMiddleware(history)]
 
 const composedEnhancers = composeWithDevTools(
-  applyMiddleware(...middleware),
+  applyMiddleware(...middleware)
   // ...enhancers
 )
 
-const store = createStore(
-  rootReducer,
-  initialState,
-  composedEnhancers
-)
+const store = createStore(rootReducer, initialState, composedEnhancers)
 
 // start saga generators
 sagaMiddleware.run(sagas)

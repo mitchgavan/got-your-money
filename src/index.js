@@ -9,7 +9,6 @@ import { unregister } from './registerServiceWorker'
 import 'normalize.css'
 import './theme/index.css'
 
-
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
