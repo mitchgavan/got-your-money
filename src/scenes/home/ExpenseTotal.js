@@ -17,18 +17,10 @@ const BlockGradient = styled(Block)`
 export default ({ total }) => (
   <Box mb={2}>
     <BlockGradient p={[4, 5]}>
-      <HeadingSmall
-        fontSize={1}
-        color={colors.white}
-        mb={2}
-      >
+      <HeadingSmall fontSize={1} color={colors.white} mb={2}>
         Total Expenses This Week
       </HeadingSmall>
-      <Text
-        fontSize={5}
-        color={colors.white}
-        m={1}
-      >
+      <Text fontSize={5} color={colors.white} m={1}>
         ${total ? total.toFixed(2) : 0}
       </Text>
     </BlockGradient>

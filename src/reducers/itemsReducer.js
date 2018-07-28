@@ -1,8 +1,4 @@
-import {
-  prepend,
-  reject,
-  propEq
-} from 'ramda'
+import { prepend, reject, propEq } from 'ramda'
 import createReducer from '../utilities/createReducer'
 import {
   ADD_ITEM_SUCCESS,
@@ -14,8 +10,7 @@ const initialState = []
 
 const fetchItemsSuccess = (state, { payload }) => payload
 
-const addItemSuccess = (state, { payload }) =>
-  prepend(payload, state)
+const addItemSuccess = (state, { payload }) => prepend(payload, state)
 
 const removeItemSuccess = (state, { payload }) =>
   reject(propEq('_id', payload), state)

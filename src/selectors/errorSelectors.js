@@ -5,11 +5,11 @@ import { compose, head, filter, map, path } from 'ramda'
 //   requires multiple API calls, we shows the first error
 
 export const createErrorMessageSelector = actions => state => {
-    const firstError = compose(
-        head,
-        filter(Boolean),
-        map(action => path(['error', action], state))
-    )
+  const firstError = compose(
+    head,
+    filter(Boolean),
+    map(action => path(['error', action], state))
+  )
 
-    return firstError(actions)
+  return firstError(actions)
 }

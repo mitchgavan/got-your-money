@@ -11,7 +11,7 @@ import Button from '../../components/Button'
 
 export default class Home extends React.Component {
   state = {
-    itemBeingRemoved: null
+    itemBeingRemoved: null,
   }
 
   componentDidMount() {
@@ -26,9 +26,7 @@ export default class Home extends React.Component {
   renderExpenses() {
     if (this.props.isFetching) {
       return (
-        <Text
-          fontSize={2}
-          m={1}>
+        <Text fontSize={2} m={1}>
           Loading...
         </Text>
       )
@@ -36,9 +34,7 @@ export default class Home extends React.Component {
 
     if (!this.props.visibleItems.length) {
       return (
-        <Text
-          fontSize={2}
-          m={1}>
+        <Text fontSize={2} m={1}>
           {this.props.isApiError ? 'Something went wrong' : 'No expenses found'}
         </Text>
       )
@@ -46,14 +42,20 @@ export default class Home extends React.Component {
 
     return (
       <Flex wrap="wrap">
-        {map(item => (
-          <ExpenseItem
-            key={item._id}
-            isBeingDeleted={this.props.isDeletingItem && item._id === this.state.itemBeingRemoved}
-            onRemoveClick={() => this.handleRemoveClick(item._id)}
-            {...item}
-          />
-        ), this.props.visibleItems)}
+        {map(
+          item => (
+            <ExpenseItem
+              key={item._id}
+              isBeingDeleted={
+                this.props.isDeletingItem &&
+                item._id === this.state.itemBeingRemoved
+              }
+              onRemoveClick={() => this.handleRemoveClick(item._id)}
+              {...item}
+            />
+          ),
+          this.props.visibleItems
+        )}
       </Flex>
     )
   }
@@ -61,24 +63,18 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <ExpenseTotal
-          total={this.props.itemsTotalCostForCurrentWeek} 
-        />
+        <ExpenseTotal total={this.props.itemsTotalCostForCurrentWeek} />
         <Container>
           <WeeklySummary startOfWeek={this.props.date.startOfWeek} />
-          <Flex p={3} justifyContent='center'>
+          <Flex p={3} justifyContent="center">
             <ButtonLink onClick={this.props.goToAddItem} bg="green">
               Add a new expense
             </ButtonLink>
           </Flex>
           {this.renderExpenses()}
-          <Flex p={3} justifyContent='space-between'>
-            <Button onClick={this.props.previousWeek}>
-              Last Week
-            </Button>
-            <Button onClick={this.props.nextWeek}>
-              Next Week
-            </Button>
+          <Flex p={3} justifyContent="space-between">
+            <Button onClick={this.props.previousWeek}>Last Week</Button>
+            <Button onClick={this.props.nextWeek}>Next Week</Button>
           </Flex>
         </Container>
       </div>

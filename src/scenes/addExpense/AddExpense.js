@@ -19,7 +19,7 @@ import ExpenseForm from './ExpenseForm'
 export default ({
   addItem,
   // goToHome,
-  isPosting
+  isPosting,
 }) => (
   <Container p={2}>
     {/* <Button

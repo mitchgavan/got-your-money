@@ -10,5 +10,5 @@ export default combineReducers({
   items,
   date,
   loading,
-  error
+  error,
 })

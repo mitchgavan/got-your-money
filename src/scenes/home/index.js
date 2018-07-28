@@ -1,13 +1,7 @@
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
-import {
-  removeItem,
-  fetchItems
-} from '../../actions/items'
-import { 
-  nextWeek,
-  previousWeek,
-} from '../../actions/date'
+import { removeItem, fetchItems } from '../../actions/items'
+import { nextWeek, previousWeek } from '../../actions/date'
 import {
   getItemsOrderedByDate,
   getItemsForCurrentWeek,
@@ -32,7 +26,7 @@ const mapDispatchToProps = {
   nextWeek,
   previousWeek,
   fetchItems,
-  goToAddItem: () => push('/add-expense')
+  goToAddItem: () => push('/add-expense'),
 }
 
 export default connect(
