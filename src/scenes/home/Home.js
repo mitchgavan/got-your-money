@@ -34,12 +34,12 @@ export default class Home extends React.Component {
       )
     }
 
-    if (!this.props.visibleItems) {
+    if (!this.props.visibleItems.length) {
       return (
         <Text
           fontSize={2}
           m={1}>
-          No expenses found
+          {this.props.isApiError ? 'Something went wrong' : 'No expenses found'}
         </Text>
       )
     }

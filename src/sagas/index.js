@@ -12,12 +12,15 @@ import {
 } from '../actions/types'
 import itemsApi from '../api/itemsApi'
 
-function* fetchItems(action) {
+function* fetchItems() {
     try {
         const response = yield call(itemsApi.getAll)
         yield put({ type: FETCH_ITEMS_SUCCESS, payload: response.data })
     } catch (err) {
-        yield put({ type: FETCH_ITEMS_ERROR, payload: 'fail' })
+        yield put({
+            type: FETCH_ITEMS_ERROR,
+            payload: { message: 'Failed API call to fetch all items.' }
+        })
     }
 }
 
@@ -26,7 +29,10 @@ function* addItem(action) {
         const response = yield call(itemsApi.createItem, action.payload)
         yield put({ type: ADD_ITEM_SUCCESS, payload: response.data })
     } catch (err) {
-        yield put({ type: ADD_ITEM_ERROR, payload: 'fail' })
+        yield put({
+            type: ADD_ITEM_ERROR,
+            payload: { message: 'Failed API call to add item.' }
+        })
     }
 }
 
@@ -35,7 +41,10 @@ function* removeItem(action) {
         const response = yield call(itemsApi.deleteItem, action.payload.id)
         yield put({ type: REMOVE_ITEM_SUCCESS, payload: response.data.item._id })
     } catch(err) {
-        yield put({ type: REMOVE_ITEM_ERROR, payload: 'fail'})
+        yield put({ 
+            type: REMOVE_ITEM_ERROR,
+            payload: { message: 'Failed API call to remove item.' },
+        })
     }
 }
 
