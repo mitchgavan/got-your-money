@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
-
+import { withAuthenticator } from 'aws-amplify-react'
 import theme from './theme'
 import Home from './scenes/home'
 import About from './scenes/about'
@@ -25,4 +25,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withAuthenticator(App)
