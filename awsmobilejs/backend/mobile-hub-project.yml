@@ -1,11 +1,62 @@
 --- !com.amazonaws.mobilehub.v0.Project 
 features:
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      expensesCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: expensesCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths:
+          /expenses: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/expenses-20180729122128.zip
+            description: 'Handler for calls to resource path : /expenses/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: PoLvg9S88lIVXie4KKNUFqZG7hiJ2MXsOqbOtWv8RjA=
+            memorySize: '128'
+            modified: '2018-07-29T02:24:48.243+0000'
+            name: expenses
+            runtime: nodejs6.10
+            timeout: '3'
+            version: K6A7TcrPq.1bDIuCf5uWeDVWiCqILNOz
+          '/expenses/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/expenses-20180729122128.zip
+            description: 'Handler for calls to resource path : /expenses/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: PoLvg9S88lIVXie4KKNUFqZG7hiJ2MXsOqbOtWv8RjA=
+            memorySize: '128'
+            modified: '2018-07-29T02:24:48.243+0000'
+            name: expenses
+            runtime: nodejs6.10
+            timeout: '3'
+            version: _YokUOj5FDK5RaH5kWCVuYwwwRQzWzv6
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
       visibility: public-global
     components:
       release: !com.amazonaws.mobilehub.v0.Bucket {}
+  database: !com.amazonaws.mobilehub.v0.Database 
+    components:
+      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
+        tables:
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              cost: N
+              date: N
+              id: S
+              title: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: id
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-expenses
+            tablePrivacy: private
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}

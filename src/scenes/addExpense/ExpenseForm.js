@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { format, parse } from 'date-fns'
+import uuidv1 from 'uuid/v1'
 import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
 
@@ -9,6 +10,7 @@ class ExpenseForm extends Component {
     submitted: false,
     title: '',
     cost: '',
+    id: '',
     date: format(new Date(), 'dd/MM/yyyy'),
   }
 
@@ -21,6 +23,7 @@ class ExpenseForm extends Component {
       title: this.state.title,
       cost: this.state.cost,
       date: parsedDate,
+      id: uuidv1(),
     })
 
     this.setState({ submitted: true })

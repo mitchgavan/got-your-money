@@ -1,18 +1,12 @@
 import axios from 'axios'
+import { API } from 'aws-amplify'
 
 const getAll = () => {
-  return axios({
-    method: 'get',
-    url: process.env.REACT_APP_ITEMS_ENDPOINT,
-  })
+  return API.get('expensesCRUD', '/expenses')
 }
 
 const createItem = data => {
-  return axios({
-    method: 'post',
-    url: process.env.REACT_APP_ITEMS_ENDPOINT,
-    data,
-  })
+  return API.post('expensesCRUD', '/expenses', { body: data })
 }
 
 const deleteItem = id => {

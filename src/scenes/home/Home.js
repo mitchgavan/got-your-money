@@ -45,12 +45,12 @@ export default class Home extends React.Component {
         {map(
           item => (
             <ExpenseItem
-              key={item._id}
+              key={item.id}
               isBeingDeleted={
                 this.props.isDeletingItem &&
-                item._id === this.state.itemBeingRemoved
+                item.id === this.state.itemBeingRemoved
               }
-              onRemoveClick={() => this.handleRemoveClick(item._id)}
+              onRemoveClick={() => this.handleRemoveClick(item.id)}
               {...item}
             />
           ),

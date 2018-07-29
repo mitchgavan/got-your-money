@@ -15,7 +15,8 @@ import itemsApi from '../api/itemsApi'
 function* fetchItems() {
   try {
     const response = yield call(itemsApi.getAll)
-    yield put({ type: FETCH_ITEMS_SUCCESS, payload: response.data })
+    console.log(response)
+    yield put({ type: FETCH_ITEMS_SUCCESS, payload: response })
   } catch (err) {
     yield put({
       type: FETCH_ITEMS_ERROR,
@@ -39,7 +40,7 @@ function* addItem(action) {
 function* removeItem(action) {
   try {
     const response = yield call(itemsApi.deleteItem, action.payload.id)
-    yield put({ type: REMOVE_ITEM_SUCCESS, payload: response.data.item._id })
+    yield put({ type: REMOVE_ITEM_SUCCESS, payload: response.data.item.id })
   } catch (err) {
     yield put({
       type: REMOVE_ITEM_ERROR,
