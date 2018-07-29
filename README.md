@@ -1,6 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Stack includes:
+
 - React
 - Redux
 - Redux Saga
@@ -8,6 +9,14 @@ Stack includes:
 - React Router
 - Ramda
 - Styled Components (with Styled System)
+- AWS Amplify
+
+AWS Infrastructure:
+
+- Web app (S3 and Cloudfrount)
+- API (Lambda and API Gateway)
+- Database (DynamoDB)
+- Authentication (Cognito)
 
 ## Available Scripts
 
@@ -35,6 +44,10 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](#deployment) for more information.
+
+### `npm run deploy`
+
+Publish app via AWS Mobile Hub
 
 ### `npm run eject`
 
