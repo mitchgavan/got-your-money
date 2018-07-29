@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { API } from 'aws-amplify'
 
 const getAll = () => {
@@ -10,10 +9,7 @@ const createItem = data => {
 }
 
 const deleteItem = id => {
-  return axios({
-    method: 'delete',
-    url: `${process.env.REACT_APP_ITEMS_ENDPOINT}/${id}`,
-  })
+  return API.del('expensesCRUD', `/expenses/object/${id}`)
 }
 
 export default {

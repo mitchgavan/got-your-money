@@ -39,8 +39,8 @@ function* addItem(action) {
 
 function* removeItem(action) {
   try {
-    const response = yield call(itemsApi.deleteItem, action.payload.id)
-    yield put({ type: REMOVE_ITEM_SUCCESS, payload: response.data.item.id })
+    yield call(itemsApi.deleteItem, action.payload.id)
+    yield put({ type: REMOVE_ITEM_SUCCESS, payload: action.payload.id })
   } catch (err) {
     yield put({
       type: REMOVE_ITEM_ERROR,
