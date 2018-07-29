@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { space, width, fontSize, color } from 'styled-system'
 import theme from '../theme'
+import Block from './Block'
 
 const Label = styled.label`
   display: block;
@@ -39,8 +40,8 @@ const LabelText = styled.span`
   position: absolute;
   display: block;
   left: 10px;
-  font-size: 14px;
-  top: ${props => props.isActive ? '-20px' : '8px'};
+  font-size: ${props => (props.isActive ? '11px' : '14px')}
+  top: ${props => (props.isActive ? '-20px' : '8px')};
 `
 
 export default class TextInput extends Component {
@@ -66,20 +67,21 @@ export default class TextInput extends Component {
 
   render() {
     return (
-      <Label>
-        <LabelText isActive={this.state.isActive}>
-          {this.props.displayName}
-        </LabelText>
-        <InputField
-          name={this.props.name}
-          type="text"
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          value={this.props.value || ''}
-          onChange={this.props.onChange}
-        />
-      </Label>
+      <Block pt={2} pb={1}>
+        <Label>
+          <LabelText isActive={this.state.isActive}>
+            {this.props.displayName}
+          </LabelText>
+          <InputField
+            name={this.props.name}
+            type="text"
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+            value={this.props.value || ''}
+            onChange={this.props.onChange}
+          />
+        </Label>
+      </Block>
     )
   }
-
 }

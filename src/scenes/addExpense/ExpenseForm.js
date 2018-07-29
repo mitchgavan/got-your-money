@@ -4,6 +4,7 @@ import { format, parse } from 'date-fns'
 import uuidv1 from 'uuid/v1'
 import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
+import Block from '../../components/Block'
 
 class ExpenseForm extends Component {
   state = {
@@ -42,7 +43,7 @@ class ExpenseForm extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <div>
+        <Block py={2}>
           <TextInput
             name="title"
             displayName="Title"
@@ -64,7 +65,7 @@ class ExpenseForm extends Component {
           <Button type="submit">
             {this.props.isPosting ? 'submitting' : 'submit'}
           </Button>
-        </div>
+        </Block>
       </form>
     )
   }

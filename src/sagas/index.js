@@ -15,7 +15,6 @@ import itemsApi from '../api/itemsApi'
 function* fetchItems() {
   try {
     const response = yield call(itemsApi.getAll)
-    console.log(response)
     yield put({ type: FETCH_ITEMS_SUCCESS, payload: response })
   } catch (err) {
     yield put({
