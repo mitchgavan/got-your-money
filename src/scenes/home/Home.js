@@ -1,6 +1,7 @@
 import React from 'react'
 import { map } from 'ramda'
 import { Flex } from 'grid-styled'
+import { Redirect } from 'react-router-dom'
 import WeeklySummary from './WeeklySummary'
 import ExpenseItem from '../../components/ExpenseItem'
 import ButtonLink from '../../components/ButtonLink'
@@ -61,6 +62,10 @@ export default class Home extends React.Component {
   }
 
   render() {
+    if (!this.props.authentication.isAuthenticated) {
+      return <Redirect to="/login" />
+    }
+
     return (
       <div>
         <ExpenseTotal total={this.props.itemsTotalCostForCurrentWeek} />
