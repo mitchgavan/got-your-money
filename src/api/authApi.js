@@ -1,7 +1,11 @@
 import { Auth } from 'aws-amplify'
 
 const getCurrentSession = () => {
-  return Auth.currentSession()
+  return new Promise((resolve, reject) => {
+    return Auth.currentSession()
+      .then(session => resolve(session))
+      .catch(err => reject(err))
+  })
 }
 
 const signIn = (username, password) => {
