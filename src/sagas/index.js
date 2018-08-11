@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects'
 import { fetchItemsSaga, addItemSaga, removeItemSaga } from './itemsSagas'
-import { currentSessionSaga } from './authSagas'
+import { currentSessionSaga, signInSaga } from './authSagas'
 
 export default function* rootSaga() {
   yield all([
@@ -8,5 +8,6 @@ export default function* rootSaga() {
     addItemSaga(),
     removeItemSaga(),
     currentSessionSaga(),
+    signInSaga(),
   ])
 }

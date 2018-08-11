@@ -1,12 +1,15 @@
 import { merge } from 'ramda'
 import createReducer from '../utilities/createReducer'
-import { LOGIN_SUCCESS, CURRENT_SESSION_SUCCESS } from '../actions/types'
+import { CURRENT_SESSION_SUCCESS, SIGN_IN_SUCCESS } from '../actions/types'
 
 const initialState = {
   isAuthenticated: null,
 }
 
-// const loginSuccess = (state, { payload }) => payload
+const signInSuccess = (state, { payload }) => {
+  console.log('sign in', payload)
+  return merge(state, { isAuthenticated: true })
+}
 
 // TODO store user details
 const getCurrentSessionSuccess = (state, { payload }) => {
@@ -17,6 +20,6 @@ const getCurrentSessionSuccess = (state, { payload }) => {
 }
 
 export default createReducer(initialState, {
-  // [LOGIN_SUCCESS]: loginSuccess,
+  [SIGN_IN_SUCCESS]: signInSuccess,
   [CURRENT_SESSION_SUCCESS]: getCurrentSessionSuccess,
 })
