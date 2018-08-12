@@ -52,7 +52,9 @@ class LoginForm extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
-          <Button type="submit">Submit</Button>
+          <Button type="submit">
+            {this.props.isSigningIn ? 'Signing in...' : 'Sign in'}
+          </Button>
         </form>
       </div>
     )
