@@ -16,11 +16,7 @@ import ExpenseForm from './ExpenseForm'
 //   cost: 23
 // }
 
-export default ({
-  addItem,
-  // goToHome,
-  isPosting,
-}) => (
+export default ({ addItem, isPosting }) => (
   <Container p={2}>
     {/* <Button
       onClick={() => {
