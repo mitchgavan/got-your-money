@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
-import { withAuthenticator } from 'aws-amplify-react'
 import theme from './theme'
 import Home from './scenes/home'
+import Login from './scenes/login'
 import About from './scenes/about'
 import AddExpense from './scenes/addExpense'
 import TopBar from './components/TopBar'
@@ -16,6 +16,7 @@ class App extends Component {
           <TopBar />
           <main>
             <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/add-expense" component={AddExpense} />
             <Route exact path="/about" component={About} />
           </main>
@@ -25,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App)
+export default App

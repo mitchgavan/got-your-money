@@ -12,6 +12,7 @@ import { createErrorMessageSelector } from '../../selectors/errorSelectors'
 import Home from './Home'
 
 const mapStateToProps = state => ({
+  authentication: state.authentication,
   date: state.date,
   isFetching: createLoadingSelector(['FETCH_ITEMS'])(state),
   isDeletingItem: createLoadingSelector(['REMOVE_ITEM'])(state),
