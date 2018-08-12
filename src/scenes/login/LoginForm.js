@@ -31,7 +31,6 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    // TODO handle error state
     if (this.props.authentication.isAuthenticated) {
       return <Redirect to={'/'} />
     }
@@ -56,6 +55,7 @@ class LoginForm extends React.Component {
             {this.props.isSigningIn ? 'Signing in...' : 'Sign in'}
           </Button>
         </form>
+        {this.props.signInError && <div>Credentials are wrong</div>}
       </div>
     )
   }
