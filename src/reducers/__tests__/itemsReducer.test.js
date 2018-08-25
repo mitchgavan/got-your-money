@@ -1,10 +1,27 @@
 import items from '../itemsReducer'
 import { ADD_ITEM_SUCCESS, REMOVE_ITEM_SUCCESS } from '../../actions/types'
 
-describe('addItem', () => {
-  test('it successfully adds an item', () => {
-    const stateBefore = []
+describe('itemsReducer', () => {
+  let prevState
 
+  beforeEach(() => {
+    prevState = [
+      {
+        id: 23,
+        title: 'Food',
+        cost: '$47.00',
+        date: '2018-07-28T14:00:00.000Z',
+      },
+      {
+        id: 7,
+        title: 'Coffee',
+        cost: '$3.00',
+        date: '2018-07-28T14:00:00.000Z',
+      },
+    ]
+  })
+
+  test('it successfully adds an item', () => {
     const action = {
       type: ADD_ITEM_SUCCESS,
       payload: {
@@ -15,33 +32,26 @@ describe('addItem', () => {
       },
     }
 
-    const stateAfter = [
+    const state = [
       {
         id: 1,
         title: 'Food',
         cost: '$23.00',
         date: '2018-07-28T14:00:00.000Z',
       },
+      ...prevState,
     ]
 
-    expect(items(stateBefore, action)).toEqual(stateAfter)
+    expect(items(prevState, action)).toEqual(state)
   })
-})
 
-describe('addItem', () => {
   test('it successfully removes an item', () => {
     const action = {
       type: REMOVE_ITEM_SUCCESS,
       payload: 23,
     }
 
-    const stateBefore = [
-      {
-        id: 23,
-        title: 'Food',
-        cost: '$47.00',
-        date: '2018-07-28T14:00:00.000Z',
-      },
+    const state = [
       {
         id: 7,
         title: 'Coffee',
@@ -50,16 +60,7 @@ describe('addItem', () => {
       },
     ]
 
-    const stateAfter = [
-      {
-        id: 7,
-        title: 'Coffee',
-        cost: '$3.00',
-        date: '2018-07-28T14:00:00.000Z',
-      },
-    ]
-
-    expect(items(stateBefore, action)).toEqual(stateAfter)
+    expect(items(prevState, action)).toEqual(state)
   })
 
   test('nothing happens if there is no item with a matching ID', () => {
@@ -68,7 +69,7 @@ describe('addItem', () => {
       payload: 11,
     }
 
-    const stateBefore = [
+    const state = [
       {
         id: 23,
         title: 'Food',
@@ -83,21 +84,6 @@ describe('addItem', () => {
       },
     ]
 
-    const stateAfter = [
-      {
-        id: 23,
-        title: 'Food',
-        cost: '$47.00',
-        date: '2018-07-28T14:00:00.000Z',
-      },
-      {
-        id: 7,
-        title: 'Coffee',
-        cost: '$3.00',
-        date: '2018-07-28T14:00:00.000Z',
-      },
-    ]
-
-    expect(items(stateBefore, action)).toEqual(stateAfter)
+    expect(items(prevState, action)).toEqual(state)
   })
 })
