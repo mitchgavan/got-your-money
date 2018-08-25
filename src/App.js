@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import Home from './scenes/home'
@@ -7,6 +7,7 @@ import Login from './scenes/login'
 import About from './scenes/about'
 import AddExpense from './scenes/addExpense'
 import TopBar from './components/TopBar'
+import NoMatch from './scenes/noMatch'
 
 class App extends Component {
   render() {
@@ -15,10 +16,13 @@ class App extends Component {
         <div>
           <TopBar />
           <main>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/add-expense" component={AddExpense} />
-            <Route exact path="/about" component={About} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/add-expense" component={AddExpense} />
+              <Route exact path="/about" component={About} />
+              <Route component={NoMatch} />
+            </Switch>
           </main>
         </div>
       </ThemeProvider>
