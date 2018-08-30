@@ -8,6 +8,7 @@ import About from './scenes/about'
 import AddExpense from './scenes/addExpense'
 import TopBar from './components/TopBar'
 import NoMatch from './scenes/noMatch'
+import Expense from './scenes/expense'
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/expense/:id" component={Expense} />
               <Route exact path="/add-expense" component={AddExpense} />
               <Route exact path="/about" component={About} />
               <Route component={NoMatch} />

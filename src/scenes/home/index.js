@@ -27,6 +27,7 @@ const mapDispatchToProps = {
   nextWeek,
   previousWeek,
   fetchItems,
+  goToItem: id => push(`/expense/${id}`),
   goToAddItem: () => push('/add-expense'),
 }
 
