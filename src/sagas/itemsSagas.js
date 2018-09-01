@@ -28,16 +28,13 @@ function* fetchItems() {
 }
 
 function* fetchItem(action) {
-  console.log('saga', action.payload)
   try {
     const response = yield call(itemsApi.getOne, action.payload)
-    console.log('res', response)
     yield put({ type: FETCH_ITEM_SUCCESS, payload: response })
   } catch (err) {
-    console.log('err', err)
     yield put({
       type: FETCH_ITEM_ERROR,
-      payload: { message: 'Failed API call to fetch item.' },
+      payload: { message: err },
     })
   }
 }
@@ -56,8 +53,8 @@ function* addItem(action) {
 
 function* removeItem(action) {
   try {
-    yield call(itemsApi.deleteItem, action.payload.id)
-    yield put({ type: REMOVE_ITEM_SUCCESS, payload: action.payload.id })
+    yield call(itemsApi.deleteItem, action.payload)
+    yield put({ type: REMOVE_ITEM_SUCCESS, payload: action.payload })
   } catch (err) {
     yield put({
       type: REMOVE_ITEM_ERROR,

@@ -1,10 +1,11 @@
 import React from 'react'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
-import { fetchItem } from '../../actions/items'
+import { fetchItem, removeItem } from '../../actions/items'
 import Block from '../../components/Block'
 import Heading from '../../components/Heading'
 import Text from '../../components/Text'
+import ButtonLink from '../../components/ButtonLink'
 import { createLoadingSelector } from '../../selectors/loadingSelectors'
 import { createErrorMessageSelector } from '../../selectors/errorSelectors'
 
@@ -13,8 +14,13 @@ class Expense extends React.Component {
     this.props.fetchItem(this.props.match.params.id)
   }
 
+  handleRemoveClick = () => {
+    const { expense, removeItem } = this.props
+    removeItem(expense.id)
+  }
+
   render() {
-    const { expense, isFetching, isFetchError } = this.props
+    const { expense, isDeleting, isFetching, isFetchError } = this.props
 
     if (isFetching) {
       return (
@@ -32,10 +38,21 @@ class Expense extends React.Component {
       )
     }
 
+    if (expense.isDeleted) {
+      return (
+        <Block p={4}>
+          <Text>This expense has been removed.</Text>
+        </Block>
+      )
+    }
+
     return (
       <Block p={4}>
         <Heading>{expense.title}</Heading>
         <Text>Cost: {expense.cost}</Text>
+        <ButtonLink onClick={this.handleRemoveClick}>
+          {isDeleting ? 'Removing...' : 'Remove'}
+        </ButtonLink>
       </Block>
     )
   }
@@ -43,12 +60,14 @@ class Expense extends React.Component {
 
 const mapStateToProps = state => ({
   expense: state.expense,
+  isDeleting: createLoadingSelector(['REMOVE_ITEM'])(state),
   isFetching: createLoadingSelector(['FETCH_ITEM'])(state),
   isFetchError: createErrorMessageSelector(['FETCH_ITEM'])(state),
 })
 
 const mapDispatchToProps = {
   fetchItem,
+  removeItem,
   goToHome: () => push('/'),
 }
 
