@@ -5,7 +5,13 @@ const getAll = () => {
 }
 
 const getOne = id => {
-  return API.get('expensesCRUD', `/expenses/object/${id}`)
+  return new Promise((resolve, reject) => {
+    return API.get('expensesCRUD', `/expenses/object/${id}`)
+      .then(res => {
+        res.id ? resolve(res) : reject('No item found')
+      })
+      .catch(err => reject(err))
+  })
 }
 
 const createItem = data => {

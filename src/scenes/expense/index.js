@@ -5,6 +5,8 @@ import { fetchItem } from '../../actions/items'
 import Block from '../../components/Block'
 import Heading from '../../components/Heading'
 import Text from '../../components/Text'
+import { createLoadingSelector } from '../../selectors/loadingSelectors'
+import { createErrorMessageSelector } from '../../selectors/errorSelectors'
 
 class Expense extends React.Component {
   componentDidMount() {
@@ -12,7 +14,23 @@ class Expense extends React.Component {
   }
 
   render() {
-    const { expense } = this.props
+    const { expense, isFetching, isFetchError } = this.props
+
+    if (isFetching) {
+      return (
+        <Block p={4}>
+          <Text>Loading...</Text>
+        </Block>
+      )
+    }
+
+    if (isFetchError) {
+      return (
+        <Block p={4}>
+          <Text>Error trying to load this expense.</Text>
+        </Block>
+      )
+    }
 
     return (
       <Block p={4}>
@@ -25,6 +43,8 @@ class Expense extends React.Component {
 
 const mapStateToProps = state => ({
   expense: state.expense,
+  isFetching: createLoadingSelector(['FETCH_ITEM'])(state),
+  isFetchError: createErrorMessageSelector(['FETCH_ITEM'])(state),
 })
 
 const mapDispatchToProps = {
