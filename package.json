@@ -7,9 +7,7 @@
     "aws-amplify-react": "^1.0.4",
     "axios": "^0.18.0",
     "date-fns": "^2.0.0-alpha.10",
-    "enzyme-adapter-react-16": "^1.1.1",
     "grid-styled": "^4.3.1",
-    "jest-styled-components": "^6.0.1",
     "normalize.css": "^7.0.0",
     "ramda": "^0.25.0",
     "react": "^16.4.1",
@@ -38,8 +36,10 @@
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
     "eslint-plugin-prettier": "^2.6.2",
+    "jest-styled-components": "^6.0.1",
     "prettier": "^1.13.7",
     "react-test-renderer": "^16.4.1"
   }
