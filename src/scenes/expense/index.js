@@ -2,7 +2,7 @@ import React from 'react'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
 import { fetchItem, removeItem } from '../../actions/items'
-import Block from '../../components/Block'
+import Container from '../../components/Container'
 import Heading from '../../components/Heading'
 import Text from '../../components/Text'
 import ButtonLink from '../../components/ButtonLink'
@@ -24,36 +24,36 @@ class Expense extends React.Component {
 
     if (isFetching) {
       return (
-        <Block p={4}>
+        <Container p={4}>
           <Text>Loading...</Text>
-        </Block>
+        </Container>
       )
     }
 
     if (isFetchError) {
       return (
-        <Block p={4}>
+        <Container p={4}>
           <Text>Error trying to load this expense.</Text>
-        </Block>
+        </Container>
       )
     }
 
     if (expense.isDeleted) {
       return (
-        <Block p={4}>
+        <Container p={4}>
           <Text>This expense has been removed.</Text>
-        </Block>
+        </Container>
       )
     }
 
     return (
-      <Block p={4}>
+      <Container>
         <Heading>{expense.title}</Heading>
         <Text>Cost: {expense.cost}</Text>
         <ButtonLink onClick={this.handleRemoveClick}>
           {isDeleting ? 'Removing...' : 'Remove'}
         </ButtonLink>
-      </Block>
+      </Container>
     )
   }
 }

@@ -1,10 +1,10 @@
 import React from 'react'
-import Block from '../../components/Block'
+import Container from '../../components/Container'
 
 const NoMatch = ({ location }) => (
-  <Block p={4}>
+  <Container p={4}>
     <p>No match for {location.pathname} found</p>
-  </Block>
+  </Container>
 )
 
 export default NoMatch
