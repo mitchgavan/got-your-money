@@ -63,7 +63,7 @@ describe('itemsReducer', () => {
     expect(items(prevState, action)).toEqual(state)
   })
 
-  test('nothing happens if there is no item with a matching ID', () => {
+  test('it does NOT remove an item if there is no item with a matching ID', () => {
     const action = {
       type: REMOVE_ITEM_SUCCESS,
       payload: 11,

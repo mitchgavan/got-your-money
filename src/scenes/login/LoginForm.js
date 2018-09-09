@@ -2,6 +2,7 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
+import Container from '../../components/Container'
 
 class LoginForm extends React.Component {
   state = {
@@ -36,7 +37,7 @@ class LoginForm extends React.Component {
     }
 
     return (
-      <div>
+      <Container p={2}>
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
           <TextInput
@@ -56,7 +57,7 @@ class LoginForm extends React.Component {
           </Button>
         </form>
         {this.props.signInError && <div>Credentials are wrong</div>}
-      </div>
+      </Container>
     )
   }
 }

@@ -14,26 +14,26 @@ features:
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: U76B+eryigzr7SD/VH9veAMnP9yCd57ww0LqmspISt4=
+            hashcode: H52KqdTycPreWFOxfpq3V9fJed3O+T3PwMHG9K4JF5c=
             memorySize: '128'
-            modified: '2018-07-29T06:26:05.098+0000'
+            modified: '2018-08-25T05:24:41.066+0000'
             name: expenses
             runtime: nodejs6.10
             timeout: '3'
-            version: 4uqMF6QJXJo6I.u9OBiybUNvZ.ttGIVD
+            version: .syPxOxc1l0zVCJBDRSFIK53_B0VVTsj
           '/expenses/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
             codeFilename: uploads/expenses-20180825152120.zip
             description: 'Handler for calls to resource path : /expenses/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: U76B+eryigzr7SD/VH9veAMnP9yCd57ww0LqmspISt4=
+            hashcode: H52KqdTycPreWFOxfpq3V9fJed3O+T3PwMHG9K4JF5c=
             memorySize: '128'
-            modified: '2018-07-29T06:26:05.098+0000'
+            modified: '2018-08-25T05:24:41.066+0000'
             name: expenses
             runtime: nodejs6.10
             timeout: '3'
-            version: KIddaE1DLnVK8tV77PwKmFEpn7bY33RK
+            version: BK4oqM14xDMOclYTuqTcwj95mnyB9QfK
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true

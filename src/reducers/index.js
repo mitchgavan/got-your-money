@@ -5,6 +5,7 @@ import error from './errorReducer'
 import date from './dateReducer'
 import items from './itemsReducer'
 import authentication from './authReducer'
+import expense from './expenseReducer'
 
 export default combineReducers({
   routing: routerReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   loading,
   error,
   authentication,
+  expense,
 })
