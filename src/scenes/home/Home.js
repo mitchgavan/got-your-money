@@ -15,12 +15,7 @@ export default class Home extends React.Component {
     itemBeingRemoved: null,
   }
 
-  componentDidMount() {
-    this.props.fetchItems()
-  }
-
   handleClick = id => {
-    // this.setState({ itemBeingRemoved: id })
     this.props.goToItem(id)
   }
 

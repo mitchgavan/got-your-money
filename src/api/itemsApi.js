@@ -22,9 +22,14 @@ const deleteItem = id => {
   return API.del('expensesCRUD', `/expenses/object/${id}`)
 }
 
+const updateItem = data => {
+  return API.put('expensesCRUD', '/expenses', { body: data })
+}
+
 export default {
   getAll,
   getOne,
   createItem,
   deleteItem,
+  updateItem,
 }

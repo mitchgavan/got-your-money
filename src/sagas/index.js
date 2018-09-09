@@ -4,6 +4,7 @@ import {
   fetchItemSaga,
   addItemSaga,
   removeItemSaga,
+  updateItemSaga,
 } from './itemsSagas'
 import { currentSessionSaga, signInSaga } from './authSagas'
 
@@ -13,6 +14,7 @@ export default function* rootSaga() {
     fetchItemSaga(),
     addItemSaga(),
     removeItemSaga(),
+    updateItemSaga(),
     currentSessionSaga(),
     signInSaga(),
   ])

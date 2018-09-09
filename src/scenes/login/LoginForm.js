@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
     }
 
     return (
-      <Container>
+      <Container p={2}>
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
           <TextInput
