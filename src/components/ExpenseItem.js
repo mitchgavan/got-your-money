@@ -16,10 +16,7 @@ export default ({ title, cost, date, onClick, isBeingDeleted }) => (
         {title} <InlineText color="blue">${cost}</InlineText>
       </Text>
       <Text fontSize={1}>{format(date, 'dd/MM/yyyy')}</Text>
-      <ButtonLink onClick={onClick}>
-        {/* {isBeingDeleted ? 'Removing...' : 'Remove'} */}
-        Edit
-      </ButtonLink>
+      <ButtonLink onClick={onClick}>Edit</ButtonLink>
     </Block>
   </Box>
 )
