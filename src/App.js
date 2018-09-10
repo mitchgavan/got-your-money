@@ -13,8 +13,13 @@ import Expense from './scenes/expense'
 import { fetchItems } from './actions/items'
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchItems()
+  componentDidUpdate(prevProps) {
+    if (
+      !prevProps.authentication.isAuthenticated &&
+      this.props.authentication.isAuthenticated
+    ) {
+      this.props.fetchItems()
+    }
   }
 
   render() {
@@ -38,13 +43,17 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  authentication: state.authentication,
+})
+
 const mapDispatchToProps = {
   fetchItems,
 }
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(App)
 )
