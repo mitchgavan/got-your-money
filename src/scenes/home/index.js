@@ -1,6 +1,6 @@
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
-import { removeItem, fetchItems } from '../../actions/items'
+import { fetchItems } from '../../actions/items'
 import { nextWeek, previousWeek } from '../../actions/date'
 import {
   getItemsOrderedByDate,
@@ -15,7 +15,6 @@ const mapStateToProps = state => ({
   authentication: state.authentication,
   date: state.date,
   isFetching: createLoadingSelector(['FETCH_ITEMS'])(state),
-  isDeletingItem: createLoadingSelector(['REMOVE_ITEM'])(state),
   isApiError: createErrorMessageSelector(['FETCH_ITEMS', 'REMOVE_ITEM'])(state),
   items: getItemsOrderedByDate(state),
   itemsTotalCostForCurrentWeek: getItemsTotalCostForCurrentWeek(state),
@@ -23,10 +22,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  removeItem,
   nextWeek,
   previousWeek,
   fetchItems,
+  goToItem: id => push(`/expense/${id}`),
   goToAddItem: () => push('/add-expense'),
 }
 

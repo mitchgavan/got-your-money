@@ -15,13 +15,8 @@ export default class Home extends React.Component {
     itemBeingRemoved: null,
   }
 
-  componentDidMount() {
-    this.props.fetchItems()
-  }
-
-  handleRemoveClick = id => {
-    this.setState({ itemBeingRemoved: id })
-    this.props.removeItem({ id })
+  handleClick = id => {
+    this.props.goToItem(id)
   }
 
   renderExpenses() {
@@ -51,7 +46,7 @@ export default class Home extends React.Component {
                 this.props.isDeletingItem &&
                 item.id === this.state.itemBeingRemoved
               }
-              onRemoveClick={() => this.handleRemoveClick(item.id)}
+              onClick={() => this.handleClick(item.id)}
               {...item}
             />
           ),
