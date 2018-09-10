@@ -1,10 +1,6 @@
 import React from 'react'
-import Block from '../../components/Block'
+import { Redirect } from 'react-router-dom'
 
-const NoMatch = ({ location }) => (
-  <Block p={4}>
-    <p>No match for {location.pathname} found</p>
-  </Block>
-)
+const NoMatch = ({ location }) => <Redirect to="/" />
 
 export default NoMatch
