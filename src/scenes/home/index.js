@@ -1,7 +1,7 @@
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
 import { fetchItems } from '../../actions/items'
-import { nextWeek, previousWeek } from '../../actions/date'
+import { nextWeek, previousWeek } from '../../store/date/dateActions'
 import {
   getItemsOrderedByDate,
   getItemsForCurrentWeek,
