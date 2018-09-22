@@ -1,12 +1,12 @@
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
-import { fetchItems } from '../../actions/items'
+import { fetchItems } from '../../store/expenses/expensesActions'
 import { nextWeek, previousWeek } from '../../store/date/dateActions'
 import {
   getItemsOrderedByDate,
   getItemsForCurrentWeek,
   getItemsTotalCostForCurrentWeek,
-} from '../../selectors/itemsSelectors'
+} from '../../store/expenses/expensesSelectors'
 import { createLoadingSelector } from '../../selectors/loadingSelectors'
 import { createErrorMessageSelector } from '../../selectors/errorSelectors'
 import Home from './Home'

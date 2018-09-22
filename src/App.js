@@ -10,7 +10,7 @@ import AddExpense from './scenes/addExpense'
 import TopBar from './components/TopBar'
 import NoMatch from './scenes/noMatch'
 import Expense from './scenes/expense'
-import { fetchItems } from './actions/items'
+import { fetchItems } from './store/expenses/expensesActions'
 
 class App extends Component {
   componentDidUpdate(prevProps) {

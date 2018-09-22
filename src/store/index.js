@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import createHistory from 'history/createBrowserHistory'
 // import persistState from 'redux-localstorage'
 import createSagaMiddleware from 'redux-saga'
-import sagas from '../sagas'
+import sagas from './sagas'
 
 import rootReducer from '../reducers'
 

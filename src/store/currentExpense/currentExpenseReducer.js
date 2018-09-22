@@ -1,5 +1,5 @@
-import createReducer from '../utilities/createReducer'
-import { FETCH_ITEM_SUCCESS } from '../actions/types'
+import createReducer from '../../utilities/createReducer'
+import { FETCH_ITEM_SUCCESS } from '../currentExpense/currentExpenseActions'
 
 const initialState = {
   id: '',

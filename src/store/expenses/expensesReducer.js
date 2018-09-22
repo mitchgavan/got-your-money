@@ -1,11 +1,11 @@
 import { when, map, merge, prepend, reject, propEq } from 'ramda'
-import createReducer from '../utilities/createReducer'
+import createReducer from '../../utilities/createReducer'
 import {
   ADD_ITEM_SUCCESS,
   FETCH_ITEMS_SUCCESS,
   REMOVE_ITEM_SUCCESS,
   UPDATE_ITEM_SUCCESS,
-} from '../actions/types'
+} from './expensesActions'
 
 const initialState = []
 
