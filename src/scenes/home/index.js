@@ -7,8 +7,8 @@ import {
   getItemsForCurrentWeek,
   getItemsTotalCostForCurrentWeek,
 } from '../../store/expenses/expensesSelectors'
-import { createLoadingSelector } from '../../selectors/loadingSelectors'
-import { createErrorMessageSelector } from '../../selectors/errorSelectors'
+import { createLoadingSelector } from '../../store/loading/loadingSelectors'
+import { createErrorMessageSelector } from '../../store/error/errorSelectors'
 import Home from './Home'
 
 const mapStateToProps = state => ({

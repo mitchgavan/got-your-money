@@ -19,8 +19,8 @@ import {
   makeGetItemById,
   getNumberOfItems,
 } from '../../store/expenses/expensesSelectors'
-import { createLoadingSelector } from '../../selectors/loadingSelectors'
-import { createErrorMessageSelector } from '../../selectors/errorSelectors'
+import { createLoadingSelector } from '../../store/loading/loadingSelectors'
+import { createErrorMessageSelector } from '../../store/error/errorSelectors'
 
 class Expense extends React.Component {
   state = {
