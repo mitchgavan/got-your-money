@@ -4,7 +4,7 @@ import loading from './loadingReducer'
 import error from './errorReducer'
 import date from './dateReducer'
 import items from './itemsReducer'
-import authentication from './authReducer'
+import authentication from '../store/auth/authReducer'
 import expense from './expenseReducer'
 
 export default combineReducers({

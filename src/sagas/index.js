@@ -6,7 +6,7 @@ import {
   removeItemSaga,
   updateItemSaga,
 } from './itemsSagas'
-import { currentSessionSaga, signInSaga } from './authSagas'
+import { currentSessionSaga, signInSaga } from '../store/auth/authSagas'
 
 export default function* rootSaga() {
   yield all([

@@ -1,6 +1,6 @@
 import { merge } from 'ramda'
-import createReducer from '../utilities/createReducer'
-import { CURRENT_SESSION_SUCCESS, SIGN_IN_SUCCESS } from '../actions/types'
+import createReducer from '../../utilities/createReducer'
+import { CURRENT_SESSION_SUCCESS, SIGN_IN_SUCCESS } from './authActions'
 
 const initialState = {
   isAuthenticated: null,

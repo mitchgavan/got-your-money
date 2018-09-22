@@ -1,4 +1,3 @@
-import { merge } from 'ramda'
 import createReducer from '../utilities/createReducer'
 import { FETCH_ITEM_SUCCESS } from '../actions/types'
 

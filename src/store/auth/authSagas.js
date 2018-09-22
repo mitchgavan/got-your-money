@@ -6,8 +6,8 @@ import {
   SIGN_IN_SUCCESS,
   SIGN_IN_REQUEST,
   SIGN_IN_ERROR,
-} from '../actions/types'
-import authApi from '../api/authApi'
+} from './authActions'
+import authApi from '../../api/authApi'
 
 function* currentSession() {
   try {
