@@ -3,7 +3,11 @@ import { Redirect } from 'react-router-dom'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
 import { format, parse } from 'date-fns'
-import { fetchItem, removeItem, updateItemRequest } from '../../actions/items'
+import {
+  removeItem,
+  updateItemRequest,
+} from '../../store/expenses/expensesActions'
+import { fetchItem } from '../../store/currentExpense/currentExpenseActions'
 import Container from '../../components/Container'
 import Block from '../../components/Block'
 import TextInput from '../../components/TextInput'
@@ -14,9 +18,9 @@ import ButtonLink from '../../components/ButtonLink'
 import {
   makeGetItemById,
   getNumberOfItems,
-} from '../../selectors/itemsSelectors'
-import { createLoadingSelector } from '../../selectors/loadingSelectors'
-import { createErrorMessageSelector } from '../../selectors/errorSelectors'
+} from '../../store/expenses/expensesSelectors'
+import { createLoadingSelector } from '../../store/loading/loadingSelectors'
+import { createErrorMessageSelector } from '../../store/error/errorSelectors'
 
 class Expense extends React.Component {
   state = {

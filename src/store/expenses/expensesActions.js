@@ -2,10 +2,6 @@ export const FETCH_ITEMS_REQUEST = 'FETCH_ITEMS_REQUEST'
 export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS'
 export const FETCH_ITEMS_ERROR = 'FETCH_ITEMS_ERROR'
 
-export const FETCH_ITEM_REQUEST = 'FETCH_ITEM_REQUEST'
-export const FETCH_ITEM_SUCCESS = 'FETCH_ITEM_SUCCESS'
-export const FETCH_ITEM_ERROR = 'FETCH_ITEM_ERROR'
-
 export const ADD_ITEM_REQUEST = 'ADD_ITEM_REQUEST'
 export const ADD_ITEM_SUCCESS = 'ADD_ITEM_SUCCESS'
 export const ADD_ITEM_ERROR = 'ADD_ITEM_ERROR'
@@ -18,13 +14,22 @@ export const UPDATE_ITEM_REQUEST = 'UPDATE_ITEM_REQUEST'
 export const UPDATE_ITEM_SUCCESS = 'UPDATE_ITEM_SUCCESS'
 export const UPDATE_ITEM_ERROR = 'UPDATE_ITEM_ERROR'
 
-export const NEXT_WEEK = 'NEXT_WEEK'
-export const PREVIOUS_WEEK = 'PREVIOUS_WEEK'
+export const addItem = payload => ({
+  type: ADD_ITEM_REQUEST,
+  payload,
+})
 
-export const SIGN_IN_REQUEST = 'SIGN_IN_REQUEST'
-export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS'
-export const SIGN_IN_ERROR = 'SIGN_IN_ERROR'
+export const removeItem = payload => ({
+  type: REMOVE_ITEM_REQUEST,
+  payload,
+})
 
-export const CURRENT_SESSION_REQUEST = 'CURRENT_SESSION_REQUEST'
-export const CURRENT_SESSION_SUCCESS = 'CURRENT_SESSION_SUCCESS'
-export const CURRENT_SESSION_ERROR = 'CURRENT_SESSION_ERROR'
+export const fetchItems = payload => ({
+  type: FETCH_ITEMS_REQUEST,
+  payload,
+})
+
+export const updateItemRequest = payload => ({
+  type: UPDATE_ITEM_REQUEST,
+  payload,
+})
