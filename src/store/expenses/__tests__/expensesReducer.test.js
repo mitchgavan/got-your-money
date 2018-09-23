@@ -1,5 +1,8 @@
-import items from '../itemsReducer'
-import { ADD_ITEM_SUCCESS, REMOVE_ITEM_SUCCESS } from '../../actions/types'
+import items from '../../expenses/expensesReducer'
+import {
+  ADD_ITEM_SUCCESS,
+  REMOVE_ITEM_SUCCESS,
+} from '../../expenses/expensesActions'
 
 describe('itemsReducer', () => {
   let prevState
