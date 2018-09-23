@@ -15,7 +15,7 @@ import {
 } from './expensesActions'
 import itemsApi from '../../api/itemsApi'
 
-function* fetchItems() {
+export function* fetchItems() {
   try {
     const response = yield call(itemsApi.getAll)
     yield put({ type: FETCH_ITEMS_SUCCESS, payload: response })
