@@ -6,16 +6,12 @@ const initialState = {
   isAuthenticated: null,
 }
 
-const signInSuccess = (state, { payload }) => {
-  console.log('sign in', payload)
-  return merge(state, { isAuthenticated: true })
-}
+const signInSuccess = (state, { payload }) =>
+  merge(state, { isAuthenticated: true })
 
 // TODO store user details
-const getCurrentSessionSuccess = (state, { payload }) => {
-  console.log('current session', payload)
-  return merge(state, { isAuthenticated: true })
-}
+const getCurrentSessionSuccess = (state, { payload }) =>
+  merge(state, { isAuthenticated: true })
 
 export default createReducer(initialState, {
   [SIGN_IN_SUCCESS]: signInSuccess,

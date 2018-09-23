@@ -58,7 +58,6 @@ function* updateItem({ payload }) {
     // refresh all items
     yield put({ type: FETCH_ITEMS_REQUEST })
   } catch (err) {
-    console.log('saga err', err)
     yield put({
       type: UPDATE_ITEM_ERROR,
       payload: { message: 'Failed API call to update item' },
