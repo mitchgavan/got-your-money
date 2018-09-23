@@ -5,13 +5,10 @@ import 'jest-styled-components'
 import toJson from 'enzyme-to-json'
 import theme from '../../theme'
 
-it('renders correctly', () => {
-  const wrapper = shallow(<Block color="red" bg="white" />)
-  expect(toJson(wrapper)).toMatchSnapshot()
-})
+let component
 
-test('it applies styles according to passed props', () => {
-  const wrapper = shallow(
+beforeEach(() => {
+  component = shallow(
     <Block
       theme={theme}
       color="red"
@@ -22,19 +19,17 @@ test('it applies styles according to passed props', () => {
       width={200}
     />
   )
-  expect(toJson(wrapper)).toHaveStyleRule(
-    'color',
-    expect.stringContaining('red')
-  )
-  expect(toJson(wrapper)).toHaveStyleRule(
-    'background-color',
-    theme.colors.white
-  )
-  expect(toJson(wrapper)).toHaveStyleRule('padding', theme.space[2] + 'px')
-  expect(toJson(wrapper)).toHaveStyleRule(
-    'font-size',
-    theme.fontSizes[2] + 'px'
-  )
-  expect(toJson(wrapper)).toHaveStyleRule('text-align', 'center')
-  expect(toJson(wrapper)).toHaveStyleRule('width', '200px')
+})
+
+it('renders correctly', () => {
+  expect(toJson(component)).toMatchSnapshot()
+})
+
+test('it applies styles according to passed props', () => {
+  expect(component).toHaveStyleRule('color', expect.stringContaining('red'))
+  expect(component).toHaveStyleRule('background-color', theme.colors.white)
+  expect(component).toHaveStyleRule('padding', theme.space[2] + 'px')
+  expect(component).toHaveStyleRule('font-size', theme.fontSizes[2] + 'px')
+  expect(component).toHaveStyleRule('text-align', 'center')
+  expect(component).toHaveStyleRule('width', '200px')
 })
