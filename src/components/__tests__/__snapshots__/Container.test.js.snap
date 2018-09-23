@@ -1,0 +1,279 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+.c1 {
+  box-sizing: border-box;
+  width: 50%;
+  margin-bottom: 12px;
+  padding: 12px;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.c0 {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width:32px) {
+  .c1 {
+    width: 33.33333333333333%;
+  }
+}
+
+@media screen and (min-width:48px) {
+  .c1 {
+    width: 25%;
+  }
+}
+
+<Styled(Box)
+  flex="1 1 auto"
+  mb={2}
+  p={2}
+  theme={
+    Object {
+      "breakpoints": Array [
+        32,
+        48,
+        64,
+      ],
+      "colors": Object {
+        "black": "#111",
+        "blue": "#1779ba",
+        "green": "#3adb76",
+        "lightestGrey": "#f3f4f5",
+        "white": "#fefefe",
+      },
+      "fontSizes": Array [
+        10,
+        12,
+        16,
+        18,
+        24,
+        36,
+        72,
+      ],
+      "space": Array [
+        0,
+        6,
+        12,
+        18,
+        24,
+        32,
+      ],
+    }
+  }
+  width={
+    Array [
+      0.5,
+      0.3333333333333333,
+      0.25,
+    ]
+  }
+>
+  <Box
+    className="c0"
+    flex="1 1 auto"
+    mb={2}
+    p={2}
+    theme={
+      Object {
+        "breakpoints": Array [
+          32,
+          48,
+          64,
+        ],
+        "colors": Object {
+          "black": "#111",
+          "blue": "#1779ba",
+          "green": "#3adb76",
+          "lightestGrey": "#f3f4f5",
+          "white": "#fefefe",
+        },
+        "fontSizes": Array [
+          10,
+          12,
+          16,
+          18,
+          24,
+          36,
+          72,
+        ],
+        "space": Array [
+          0,
+          6,
+          12,
+          18,
+          24,
+          32,
+        ],
+      }
+    }
+    width={
+      Array [
+        0.5,
+        0.3333333333333333,
+        0.25,
+      ]
+    }
+  >
+    <div
+      blacklist={
+        Array [
+          "width",
+          "w",
+          "m",
+          "mt",
+          "mr",
+          "mb",
+          "ml",
+          "mx",
+          "my",
+          "p",
+          "pt",
+          "pr",
+          "pb",
+          "pl",
+          "px",
+          "py",
+          "fontSize",
+          "f",
+          "color",
+          "bg",
+          "flex",
+          "order",
+          "alignSelf",
+          "css",
+        ]
+      }
+      className="c0 c1"
+      flex="1 1 auto"
+      mb={2}
+      p={2}
+      theme={
+        Object {
+          "breakpoints": Array [
+            32,
+            48,
+            64,
+          ],
+          "colors": Object {
+            "black": "#111",
+            "blue": "#1779ba",
+            "green": "#3adb76",
+            "lightestGrey": "#f3f4f5",
+            "white": "#fefefe",
+          },
+          "fontSizes": Array [
+            10,
+            12,
+            16,
+            18,
+            24,
+            36,
+            72,
+          ],
+          "space": Array [
+            0,
+            6,
+            12,
+            18,
+            24,
+            32,
+          ],
+        }
+      }
+      width={
+        Array [
+          0.5,
+          0.3333333333333333,
+          0.25,
+        ]
+      }
+    >
+      <Clean.div
+        blacklist={
+          Array [
+            "width",
+            "w",
+            "m",
+            "mt",
+            "mr",
+            "mb",
+            "ml",
+            "mx",
+            "my",
+            "p",
+            "pt",
+            "pr",
+            "pb",
+            "pl",
+            "px",
+            "py",
+            "fontSize",
+            "f",
+            "color",
+            "bg",
+            "flex",
+            "order",
+            "alignSelf",
+            "css",
+          ]
+        }
+        className="c0 c1"
+        flex="1 1 auto"
+        is="div"
+        mb={2}
+        p={2}
+        theme={
+          Object {
+            "breakpoints": Array [
+              32,
+              48,
+              64,
+            ],
+            "colors": Object {
+              "black": "#111",
+              "blue": "#1779ba",
+              "green": "#3adb76",
+              "lightestGrey": "#f3f4f5",
+              "white": "#fefefe",
+            },
+            "fontSizes": Array [
+              10,
+              12,
+              16,
+              18,
+              24,
+              36,
+              72,
+            ],
+            "space": Array [
+              0,
+              6,
+              12,
+              18,
+              24,
+              32,
+            ],
+          }
+        }
+        width={
+          Array [
+            0.5,
+            0.3333333333333333,
+            0.25,
+          ]
+        }
+      >
+        <div
+          className="c0 c1"
+        />
+      </Clean.div>
+    </div>
+  </Box>
+</Styled(Box)>
+`;
