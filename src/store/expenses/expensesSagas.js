@@ -27,7 +27,7 @@ export function* fetchItems() {
   }
 }
 
-function* addItem(action) {
+export function* addItem(action) {
   try {
     yield call(itemsApi.createItem, action.payload)
     yield put({ type: ADD_ITEM_SUCCESS, payload: action.payload })
@@ -39,7 +39,7 @@ function* addItem(action) {
   }
 }
 
-function* removeItem(action) {
+export function* removeItem(action) {
   try {
     yield call(itemsApi.deleteItem, action.payload)
     yield put({ type: REMOVE_ITEM_SUCCESS, payload: action.payload })
@@ -51,7 +51,7 @@ function* removeItem(action) {
   }
 }
 
-function* updateItem({ payload }) {
+export function* updateItem({ payload }) {
   try {
     yield call(itemsApi.updateItem, payload)
     yield put({ type: UPDATE_ITEM_SUCCESS, payload })
