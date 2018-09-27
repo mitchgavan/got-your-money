@@ -121,13 +121,6 @@ describe('updateItem saga', () => {
     expect(gen.next().value).toEqual(put({ type, payload: action.payload }))
   })
 
-  it('makes a request to fetch all items after success', () => {
-    const type = FETCH_ITEMS_REQUEST
-    gen.next()
-    gen.next()
-    expect(gen.next().value).toEqual(put({ type }))
-  })
-
   it('dispatches an error', () => {
     const type = UPDATE_ITEM_ERROR
     action.payload = { message: 'Failed API call to update item' }

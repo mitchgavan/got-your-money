@@ -55,8 +55,6 @@ export function* updateItem({ payload }) {
   try {
     yield call(itemsApi.updateItem, payload)
     yield put({ type: UPDATE_ITEM_SUCCESS, payload })
-    // refresh all items
-    yield put({ type: FETCH_ITEMS_REQUEST })
   } catch (err) {
     yield put({
       type: UPDATE_ITEM_ERROR,

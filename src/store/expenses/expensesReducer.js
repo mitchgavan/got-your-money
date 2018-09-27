@@ -1,4 +1,4 @@
-import { when, map, merge, prepend, reject, propEq } from 'ramda'
+import { __, when, map, merge, prepend, reject, propEq } from 'ramda'
 import createReducer from '../../utilities/createReducer'
 import {
   ADD_ITEM_SUCCESS,
@@ -17,7 +17,7 @@ const removeItemSuccess = (state, { payload }) =>
   reject(propEq('id', payload), state)
 
 const updateItemSuccess = (state, { payload }) =>
-  map(when(propEq('id', payload.id), merge(payload)), state)
+  map(when(propEq('id', payload.id), merge(__, payload)), state)
 
 export default createReducer(initialState, {
   [ADD_ITEM_SUCCESS]: addItemSuccess,
