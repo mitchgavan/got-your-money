@@ -52,7 +52,7 @@ export const getNumberOfItems = createSelector([getItems], items => {
 
 export const getItemsTotalCost = createSelector([getItems], items => {
   if (!items) {
-    return null
+    return 0
   }
   return getTotalCost(items)
 })
@@ -61,7 +61,7 @@ export const getItemsTotalCostForCurrentWeek = createSelector(
   [getItemsForCurrentWeek],
   items => {
     if (!items) {
-      return null
+      return 0
     }
     return getTotalCost(items)
   }
