@@ -16,7 +16,7 @@ function* currentSession() {
   } catch (err) {
     yield put({
       type: CURRENT_SESSION_ERROR,
-      payload: { message: 'Failed API call to get current session.' },
+      payload: { message: err },
     })
   }
 }

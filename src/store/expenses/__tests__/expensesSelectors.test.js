@@ -4,6 +4,7 @@ import {
   getNumberOfItems,
   getItemsTotalCost,
   getItemsTotalCostForCurrentWeek,
+  makeGetItemById,
 } from '../expensesSelectors'
 
 describe('Expenses selectors', () => {
@@ -135,6 +136,25 @@ describe('Expenses selectors', () => {
     it('should return 0 when items is undefined', () => {
       const selected = getItemsTotalCostForCurrentWeek.resultFunc()
       expect(selected).toEqual(0)
+    })
+  })
+
+  describe('makeGetItemById', () => {
+    it('should return an item with matching ID', () => {
+      const id = '2'
+      const result = {
+        date: '2018-09-25T14:00:00.000Z',
+        id: '2',
+        cost: '2.5',
+      }
+      const selected = makeGetItemById().resultFunc(id, mockParams.items)
+      expect(selected).toEqual(result)
+    })
+
+    it('should return undefined if an item with that ID does not exist', () => {
+      const id = '23'
+      const selected = makeGetItemById().resultFunc(id, mockParams.items)
+      expect(selected).toEqual(undefined)
     })
   })
 })
