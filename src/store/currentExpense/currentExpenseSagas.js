@@ -6,7 +6,7 @@ import {
 } from './currentExpenseActions'
 import itemsApi from '../../api/itemsApi'
 
-function* fetchItem(action) {
+export function* fetchItem(action) {
   try {
     const response = yield call(itemsApi.getOne, action.payload)
     yield put({ type: FETCH_ITEM_SUCCESS, payload: response })
