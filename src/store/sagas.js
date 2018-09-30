@@ -1,4 +1,4 @@
-import { takeEvery } from 'redux-saga/effects'
+import { all, takeEvery } from 'redux-saga/effects'
 import {
   fetchItemsSaga,
   addItemSaga,
@@ -17,7 +17,7 @@ import { FETCH_ITEM_REQUEST } from './currentExpense/currentExpenseActions'
 import { CURRENT_SESSION_REQUEST, SIGN_IN_REQUEST } from './auth/authActions'
 
 export default function* rootSaga() {
-  yield [
+  yield all([
     takeEvery(FETCH_ITEMS_REQUEST, fetchItemsSaga),
     takeEvery(ADD_ITEM_REQUEST, addItemSaga),
     takeEvery(REMOVE_ITEM_REQUEST, removeItemSaga),
@@ -25,5 +25,5 @@ export default function* rootSaga() {
     takeEvery(FETCH_ITEM_REQUEST, fetchItemSaga),
     takeEvery(CURRENT_SESSION_REQUEST, currentSessionSaga),
     takeEvery(SIGN_IN_REQUEST, signInSaga),
-  ]
+  ])
 }
