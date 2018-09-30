@@ -1,6 +1,5 @@
 import { put, call } from 'redux-saga/effects'
 import {
-  FETCH_ITEMS_REQUEST,
   FETCH_ITEMS_ERROR,
   FETCH_ITEMS_SUCCESS,
   ADD_ITEM_SUCCESS,
@@ -11,13 +10,18 @@ import {
   UPDATE_ITEM_ERROR,
 } from '../expensesActions'
 import itemsApi from '../../../api/itemsApi'
-import { fetchItems, addItem, removeItem, updateItem } from '../expensesSagas'
+import {
+  fetchItemsSaga,
+  addItemSaga,
+  removeItemSaga,
+  updateItemSaga,
+} from '../expensesSagas'
 
 describe('fetchItems', () => {
   let gen
 
   beforeEach(() => {
-    gen = fetchItems()
+    gen = fetchItemsSaga()
   })
 
   test('it requests all items', () => {
@@ -48,7 +52,7 @@ describe('addItem', () => {
       type: 'test',
       payload: { title: 'test', cost: '1', date: '1/1/18' },
     }
-    gen = addItem(action)
+    gen = addItemSaga(action)
   })
 
   test('it creates a new item', () => {
@@ -78,7 +82,7 @@ describe('removeItem saga', () => {
       type: 'test',
       payload: '1',
     }
-    gen = removeItem(action)
+    gen = removeItemSaga(action)
   })
 
   it('it makes a request to removes an item', () => {
@@ -108,7 +112,7 @@ describe('updateItem saga', () => {
       type: 'test',
       payload: { title: 'test', cost: '1', date: '1/1/18' },
     }
-    gen = updateItem(action)
+    gen = updateItemSaga(action)
   })
 
   it('makes a request to update an item', () => {

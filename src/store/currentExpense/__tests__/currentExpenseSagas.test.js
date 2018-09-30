@@ -1,6 +1,6 @@
 import { put, call } from 'redux-saga/effects'
 import { FETCH_ITEM_SUCCESS, FETCH_ITEM_ERROR } from '../currentExpenseActions'
-import { fetchItem } from '../currentExpenseSagas'
+import { fetchItemSaga } from '../currentExpenseSagas'
 import itemsApi from '../../../api/itemsApi'
 
 describe('fetchItem', () => {
@@ -9,7 +9,7 @@ describe('fetchItem', () => {
 
   beforeEach(() => {
     action = { payload: '1' }
-    gen = fetchItem(action)
+    gen = fetchItemSaga(action)
   })
 
   test('it requests an item', () => {

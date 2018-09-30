@@ -1,15 +1,13 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import {
-  CURRENT_SESSION_REQUEST,
   CURRENT_SESSION_ERROR,
   CURRENT_SESSION_SUCCESS,
   SIGN_IN_SUCCESS,
-  SIGN_IN_REQUEST,
   SIGN_IN_ERROR,
 } from './authActions'
 import authApi from '../../api/authApi'
 
-function* currentSession() {
+export function* currentSessionSaga() {
   try {
     const response = yield call(authApi.getCurrentSession)
     yield put({ type: CURRENT_SESSION_SUCCESS, payload: response })
@@ -21,7 +19,7 @@ function* currentSession() {
   }
 }
 
-function* signIn({ payload }) {
+export function* signInSaga({ payload }) {
   try {
     const response = yield call(
       authApi.signIn,
@@ -35,12 +33,4 @@ function* signIn({ payload }) {
       payload: { message: 'Failed API call to sign in.' },
     })
   }
-}
-
-export function* currentSessionSaga() {
-  yield takeEvery(CURRENT_SESSION_REQUEST, currentSession)
-}
-
-export function* signInSaga() {
-  yield takeEvery(SIGN_IN_REQUEST, signIn)
 }

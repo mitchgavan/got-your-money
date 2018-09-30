@@ -1,21 +1,17 @@
-import { put, takeEvery, call } from 'redux-saga/effects'
+import { put, call } from 'redux-saga/effects'
 import {
-  FETCH_ITEMS_REQUEST,
   FETCH_ITEMS_ERROR,
   FETCH_ITEMS_SUCCESS,
   ADD_ITEM_SUCCESS,
   ADD_ITEM_ERROR,
-  ADD_ITEM_REQUEST,
   REMOVE_ITEM_SUCCESS,
   REMOVE_ITEM_ERROR,
-  REMOVE_ITEM_REQUEST,
-  UPDATE_ITEM_REQUEST,
   UPDATE_ITEM_SUCCESS,
   UPDATE_ITEM_ERROR,
 } from './expensesActions'
 import itemsApi from '../../api/itemsApi'
 
-export function* fetchItems() {
+export function* fetchItemsSaga() {
   try {
     const response = yield call(itemsApi.getAll)
     yield put({ type: FETCH_ITEMS_SUCCESS, payload: response })
@@ -27,7 +23,7 @@ export function* fetchItems() {
   }
 }
 
-export function* addItem(action) {
+export function* addItemSaga(action) {
   try {
     yield call(itemsApi.createItem, action.payload)
     yield put({ type: ADD_ITEM_SUCCESS, payload: action.payload })
@@ -39,7 +35,7 @@ export function* addItem(action) {
   }
 }
 
-export function* removeItem(action) {
+export function* removeItemSaga(action) {
   try {
     yield call(itemsApi.deleteItem, action.payload)
     yield put({ type: REMOVE_ITEM_SUCCESS, payload: action.payload })
@@ -51,7 +47,7 @@ export function* removeItem(action) {
   }
 }
 
-export function* updateItem({ payload }) {
+export function* updateItemSaga({ payload }) {
   try {
     yield call(itemsApi.updateItem, payload)
     yield put({ type: UPDATE_ITEM_SUCCESS, payload })
@@ -61,21 +57,4 @@ export function* updateItem({ payload }) {
       payload: { message: 'Failed API call to update item' },
     })
   }
-}
-
-// Starts fetchUser on each dispatched `USER_FETCH_REQUESTED` action. Allows concurrent fetches of user.
-export function* fetchItemsSaga() {
-  yield takeEvery(FETCH_ITEMS_REQUEST, fetchItems)
-}
-
-export function* addItemSaga() {
-  yield takeEvery(ADD_ITEM_REQUEST, addItem)
-}
-
-export function* removeItemSaga() {
-  yield takeEvery(REMOVE_ITEM_REQUEST, removeItem)
-}
-
-export function* updateItemSaga() {
-  yield takeEvery(UPDATE_ITEM_REQUEST, updateItem)
 }
