@@ -9,31 +9,31 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /expenses: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/expenses-20180910181509.zip
+            codeFilename: uploads/expenses-20180928182402.zip
             description: 'Handler for calls to resource path : /expenses/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: opE04bREsUutTN2uco2ZSCcBLUB6TXGpDf6l3wGsKuw=
+            hashcode: mK3FqgS2dy/Gl5IRoVmawJaho4UKWYLn/a4pqtkbZuY=
             memorySize: '128'
-            modified: '2018-09-10T08:18:21.379+0000'
+            modified: '2018-09-28T08:27:02.939+0000'
             name: expenses
             runtime: nodejs6.10
             timeout: '3'
-            version: 8jRSan6hbf4dELwb_o9MKLUoGq78QG1V
+            version: BdHrCzcPYIbi4ohb0EZmjixOpqY5W__q
           '/expenses/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/expenses-20180910181509.zip
+            codeFilename: uploads/expenses-20180928182402.zip
             description: 'Handler for calls to resource path : /expenses/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: opE04bREsUutTN2uco2ZSCcBLUB6TXGpDf6l3wGsKuw=
+            hashcode: mK3FqgS2dy/Gl5IRoVmawJaho4UKWYLn/a4pqtkbZuY=
             memorySize: '128'
-            modified: '2018-09-10T08:18:21.379+0000'
+            modified: '2018-09-28T08:27:02.939+0000'
             name: expenses
             runtime: nodejs6.10
             timeout: '3'
-            version: wnvAdTdLuvpriujVayPZF7X7mE3TbDWH
+            version: cQP.tbNEgrK2b2ZRmKl36jMVmfV5lNNx
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
@@ -57,9 +57,7 @@ features:
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-expenses
             tablePrivacy: private
-  mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
-    components:
-      analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
+  mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint {}
   sign-in: !com.amazonaws.mobilehub.v0.SignIn 
     attributes:
       enabled: true

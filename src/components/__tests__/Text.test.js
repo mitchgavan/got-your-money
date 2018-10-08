@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../Button'
+import Text from '../Text'
 import { shallow } from 'enzyme'
 import 'jest-styled-components'
 import toJson from 'enzyme-to-json'
@@ -9,14 +9,13 @@ let component
 
 beforeEach(() => {
   component = shallow(
-    <Button
+    <Text
       theme={theme}
-      color="white"
-      bg="blue"
+      color="black"
       p={2}
       fontSize={3}
+      width={1 / 2}
       textAlign="center"
-      width={200}
     />
   )
 })
@@ -26,9 +25,9 @@ it('renders correctly', () => {
 })
 
 test('it applies styles according to passed props', () => {
-  expect(component).toHaveStyleRule('color', theme.colors.white)
-  expect(component).toHaveStyleRule('background-color', theme.colors.blue)
+  expect(component).toHaveStyleRule('color', theme.colors.black)
+  expect(component).toHaveStyleRule('width', '50%')
   expect(component).toHaveStyleRule('padding', theme.space[2] + 'px')
   expect(component).toHaveStyleRule('font-size', theme.fontSizes[3] + 'px')
-  expect(component).toHaveStyleRule('width', '200px')
+  expect(component).toHaveStyleRule('text-align', 'center')
 })

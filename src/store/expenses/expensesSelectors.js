@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
 import { and, propEq, filter, find, gte, lt, prop, sort } from 'ramda'
 import { differenceInDays } from 'date-fns'
-import { getTotalCost } from '../../utilities/calculations'
+import { getTotalCost } from '../../utilities/helpers'
 
 const dateDiff = (a, b) => new Date(prop('date', b)) - new Date(prop('date', a))
 
@@ -52,7 +52,7 @@ export const getNumberOfItems = createSelector([getItems], items => {
 
 export const getItemsTotalCost = createSelector([getItems], items => {
   if (!items) {
-    return null
+    return 0
   }
   return getTotalCost(items)
 })
@@ -61,7 +61,7 @@ export const getItemsTotalCostForCurrentWeek = createSelector(
   [getItemsForCurrentWeek],
   items => {
     if (!items) {
-      return null
+      return 0
     }
     return getTotalCost(items)
   }

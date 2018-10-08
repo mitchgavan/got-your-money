@@ -1,4 +1,16 @@
-import { getTotalCost } from '../calculations'
+import { getTotalCost, isNumber } from '../helpers'
+
+describe('isNumber', () => {
+  test('returns true when the argument is a number', () => {
+    expect(isNumber(23)).toBe(true)
+    expect(isNumber(0)).toBe(true)
+    expect(isNumber(-1)).toBe(true)
+  })
+
+  test('returns false when the argument is NOT a number', () => {
+    expect(isNumber('hey')).toBe(false)
+  })
+})
 
 describe('getTotalCost', () => {
   test('returns zero when an empty list is supplied', () => {

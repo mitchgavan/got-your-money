@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../Button'
+import ButtonLink from '../ButtonLink'
 import { shallow } from 'enzyme'
 import 'jest-styled-components'
 import toJson from 'enzyme-to-json'
@@ -9,7 +9,7 @@ let component
 
 beforeEach(() => {
   component = shallow(
-    <Button
+    <ButtonLink
       theme={theme}
       color="white"
       bg="blue"
