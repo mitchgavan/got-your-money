@@ -1,6 +1,6 @@
 import createReducer from '../../utilities/createReducer'
 import { merge } from 'ramda'
-import { addWeeks, subWeeks, startOfWeek } from 'date-fns/esm'
+import { addWeeks, subWeeks, startOfWeek } from 'date-fns'
 import { NEXT_WEEK, PREVIOUS_WEEK } from './dateActions'
 
 const initialState = {
