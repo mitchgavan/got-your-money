@@ -11,7 +11,7 @@ class LoginForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getCurrentSession()
+    this.props.getCurrentUser()
   }
 
   handleSubmit = e => {
@@ -51,6 +51,7 @@ class LoginForm extends React.Component {
             displayName="Password"
             value={this.state.password}
             onChange={this.handleChange}
+            type="password"
           />
           <Button type="submit">
             {this.props.isSigningIn ? 'Signing in...' : 'Sign in'}

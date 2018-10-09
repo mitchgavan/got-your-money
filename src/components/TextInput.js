@@ -45,6 +45,11 @@ const LabelText = styled.span`
 `
 
 export default class TextInput extends Component {
+  static defaultProps = {
+    type: 'text',
+    value: '',
+  }
+
   state = {
     isActive: false,
   }
@@ -74,10 +79,10 @@ export default class TextInput extends Component {
           </LabelText>
           <InputField
             name={this.props.name}
-            type="text"
+            type={this.props.type}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
-            value={this.props.value || ''}
+            value={this.props.value}
             onChange={this.props.onChange}
           />
         </Label>

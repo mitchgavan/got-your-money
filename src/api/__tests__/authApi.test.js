@@ -28,6 +28,28 @@ describe('authApi', () => {
     })
   })
 
+  describe('getCurrentUser', () => {
+    const response = {
+      username: 'test',
+    }
+    const error = {
+      message: 'error',
+    }
+    awsAmplify.Auth.currentAuthenticatedUser
+      .mockImplementationOnce(() => Promise.resolve(response))
+      .mockImplementationOnce(() => Promise.reject(error))
+
+    it('should return a promise with the current user when successful', () => {
+      return authApi
+        .getCurrentUser()
+        .then(session => expect(session).toEqual(response))
+    })
+
+    it('should return a rejected promised when unsuccessful', () => {
+      return authApi.getCurrentUser().catch(err => expect(err).toEqual(error))
+    })
+  })
+
   describe('signIn', () => {
     const response = {
       username: 'tester1',
