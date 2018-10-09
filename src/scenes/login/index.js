@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import LoginForm from './LoginForm'
-import { getCurrentSession, signIn } from '../../store/auth/authActions'
+import { getCurrentUser, signIn } from '../../store/auth/authActions'
 import { createLoadingSelector } from '../../store/loading/loadingSelectors'
 import { createErrorMessageSelector } from '../../store/error/errorSelectors'
 
@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  getCurrentSession,
+  getCurrentUser,
   signIn,
 }
 

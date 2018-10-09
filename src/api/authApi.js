@@ -8,6 +8,14 @@ const getCurrentSession = () => {
   })
 }
 
+const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    return Auth.currentAuthenticatedUser()
+      .then(session => resolve(session))
+      .catch(err => reject(err))
+  })
+}
+
 const signIn = (username, password) => {
   return new Promise((resolve, reject) => {
     return Auth.signIn(username, password)
@@ -18,5 +26,6 @@ const signIn = (username, password) => {
 
 export default {
   getCurrentSession,
+  getCurrentUser,
   signIn,
 }

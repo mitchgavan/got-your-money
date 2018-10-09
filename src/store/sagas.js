@@ -6,7 +6,11 @@ import {
   updateItemSaga,
 } from './expenses/expensesSagas'
 import { fetchItemSaga } from './currentExpense/currentExpenseSagas'
-import { currentSessionSaga, signInSaga } from './auth/authSagas'
+import {
+  currentSessionSaga,
+  signInSaga,
+  currentUserSaga,
+} from './auth/authSagas'
 import {
   ADD_ITEM_REQUEST,
   FETCH_ITEMS_REQUEST,
@@ -14,7 +18,11 @@ import {
   UPDATE_ITEM_REQUEST,
 } from './expenses/expensesActions'
 import { FETCH_ITEM_REQUEST } from './currentExpense/currentExpenseActions'
-import { CURRENT_SESSION_REQUEST, SIGN_IN_REQUEST } from './auth/authActions'
+import {
+  CURRENT_SESSION_REQUEST,
+  SIGN_IN_REQUEST,
+  CURRENT_USER_REQUEST,
+} from './auth/authActions'
 
 export default function* rootSaga() {
   yield all([
@@ -24,6 +32,7 @@ export default function* rootSaga() {
     takeEvery(UPDATE_ITEM_REQUEST, updateItemSaga),
     takeEvery(FETCH_ITEM_REQUEST, fetchItemSaga),
     takeEvery(CURRENT_SESSION_REQUEST, currentSessionSaga),
+    takeEvery(CURRENT_USER_REQUEST, currentUserSaga),
     takeEvery(SIGN_IN_REQUEST, signInSaga),
   ])
 }

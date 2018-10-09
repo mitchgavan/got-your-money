@@ -11,7 +11,7 @@ class LoginForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getCurrentSession()
+    this.props.getCurrentUser()
   }
 
   handleSubmit = e => {
