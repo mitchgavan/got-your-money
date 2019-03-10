@@ -1,23 +1,23 @@
-import React from 'react'
-import { map } from 'ramda'
-import { Flex } from 'grid-styled'
-import { Redirect } from 'react-router-dom'
-import WeeklySummary from './WeeklySummary'
-import ExpenseItem from '../../components/ExpenseItem'
-import ButtonLink from '../../components/ButtonLink'
-import Container from '../../components/Container'
-import Text from '../../components/Text'
-import ExpenseTotal from './ExpenseTotal'
-import Button from '../../components/Button'
+import React from 'react';
+import { map } from 'ramda';
+import { Flex } from 'grid-styled';
+import { Redirect } from 'react-router-dom';
+import WeeklySummary from './WeeklySummary';
+import ExpenseItem from '../../components/ExpenseItem';
+import ButtonLink from '../../components/ButtonLink';
+import Container from '../../components/Container';
+import Text from '../../components/Text';
+import ExpenseTotal from './ExpenseTotal';
+import Button from '../../components/Button';
 
 export default class Home extends React.Component {
   state = {
     itemBeingRemoved: null,
-  }
+  };
 
   handleClick = id => {
-    this.props.goToItem(id)
-  }
+    this.props.goToItem(id);
+  };
 
   renderExpenses() {
     if (this.props.isFetching) {
@@ -25,7 +25,7 @@ export default class Home extends React.Component {
         <Text fontSize={2} m={1}>
           Loading...
         </Text>
-      )
+      );
     }
 
     if (!this.props.visibleItems.length) {
@@ -33,7 +33,7 @@ export default class Home extends React.Component {
         <Text fontSize={2} m={1}>
           {this.props.isApiError ? 'Something went wrong' : 'No expenses found'}
         </Text>
-      )
+      );
     }
 
     return (
@@ -53,12 +53,12 @@ export default class Home extends React.Component {
           this.props.visibleItems
         )}
       </Flex>
-    )
+    );
   }
 
   render() {
     if (!this.props.authentication.isAuthenticated) {
-      return <Redirect to="/login" />
+      return <Redirect to="/login" />;
     }
 
     return (
@@ -78,6 +78,6 @@ export default class Home extends React.Component {
           </Flex>
         </Container>
       </div>
-    )
+    );
   }
 }

@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { space, width, fontSize, color } from 'styled-system'
+import styled from 'styled-components';
+import { space, width, fontSize, color } from 'styled-system';
 
-import theme from '../theme'
+import theme from '../theme';
 
 export default styled.button`
   display: inline-block;
@@ -25,4 +25,4 @@ export default styled.button`
   ${width}
   ${fontSize}
   ${color}
-`
+`;

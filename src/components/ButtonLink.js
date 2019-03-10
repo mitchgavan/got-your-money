@@ -1,3 +1,3 @@
-import Button from './Button'
+import Button from './Button';
 
-export default Button.withComponent('a')
+export default Button.withComponent('a');

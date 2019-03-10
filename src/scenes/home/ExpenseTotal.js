@@ -1,18 +1,18 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Box } from 'grid-styled'
-import Text from '../../components/Text'
-import Block from '../../components/Block'
-import HeadingSmall from '../../components/HeadingSmall'
-import theme from '../../theme'
+import React from 'react';
+import styled from 'styled-components';
+import { Box } from 'grid-styled';
+import Text from '../../components/Text';
+import Block from '../../components/Block';
+import HeadingSmall from '../../components/HeadingSmall';
+import theme from '../../theme';
 
-const { colors } = theme
+const { colors } = theme;
 
 const BlockGradient = styled(Block)`
   background: #ff8008;
   background: linear-gradient(to right, #ff8008, #ffc837);
   text-align: center;
-`
+`;
 
 export default ({ total }) => (
   <Box mb={2}>
@@ -25,4 +25,4 @@ export default ({ total }) => (
       </Text>
     </BlockGradient>
   </Box>
-)
+);

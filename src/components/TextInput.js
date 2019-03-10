@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import { space, width, fontSize, color } from 'styled-system'
-import theme from '../theme'
-import Block from './Block'
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { space, width, fontSize, color } from 'styled-system';
+import theme from '../theme';
+import Block from './Block';
 
 const Label = styled.label`
   display: block;
@@ -12,7 +12,7 @@ const Label = styled.label`
   font-weight: normal;
   line-height: 1.8;
   color: #0a0a0a;
-`
+`;
 
 const InputField = styled.input`
   display: block;
@@ -34,41 +34,41 @@ const InputField = styled.input`
   ${width}
   ${fontSize}
   ${color}
-`
+`;
 
 const LabelText = styled.span`
   position: absolute;
   display: block;
   left: 10px;
-  font-size: ${props => (props.isActive ? '11px' : '14px')}
+  font-size: ${props => (props.isActive ? '11px' : '14px')};
   top: ${props => (props.isActive ? '-20px' : '8px')};
-`
+`;
 
 export default class TextInput extends Component {
   static defaultProps = {
     type: 'text',
     value: '',
-  }
+  };
 
   state = {
     isActive: false,
-  }
+  };
 
   componentDidMount() {
     this.setState({
       isActive: Boolean(this.props.value),
-    })
+    });
   }
 
   handleBlur = event => {
     if (!event.target.value) {
-      this.setState({ isActive: false })
+      this.setState({ isActive: false });
     }
-  }
+  };
 
   handleFocus = event => {
-    this.setState({ isActive: true })
-  }
+    this.setState({ isActive: true });
+  };
 
   render() {
     return (
@@ -87,6 +87,6 @@ export default class TextInput extends Component {
           />
         </Label>
       </Block>
-    )
+    );
   }
 }

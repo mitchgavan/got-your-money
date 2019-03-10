@@ -1,15 +1,15 @@
-import { push } from 'react-router-redux'
-import { connect } from 'react-redux'
-import { fetchItems } from '../../store/expenses/expensesActions'
-import { nextWeek, previousWeek } from '../../store/date/dateActions'
+import { push } from 'react-router-redux';
+import { connect } from 'react-redux';
+import { fetchItems } from '../../store/expenses/expensesActions';
+import { nextWeek, previousWeek } from '../../store/date/dateActions';
 import {
   getItemsOrderedByDate,
   getItemsForCurrentWeek,
   getItemsTotalCostForCurrentWeek,
-} from '../../store/expenses/expensesSelectors'
-import { createLoadingSelector } from '../../store/loading/loadingSelectors'
-import { createErrorMessageSelector } from '../../store/error/errorSelectors'
-import Home from './Home'
+} from '../../store/expenses/expensesSelectors';
+import { createLoadingSelector } from '../../store/loading/loadingSelectors';
+import { createErrorMessageSelector } from '../../store/error/errorSelectors';
+import Home from './Home';
 
 const mapStateToProps = state => ({
   authentication: state.authentication,
@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
   items: getItemsOrderedByDate(state),
   itemsTotalCostForCurrentWeek: getItemsTotalCostForCurrentWeek(state),
   visibleItems: getItemsForCurrentWeek(state),
-})
+});
 
 const mapDispatchToProps = {
   nextWeek,
@@ -27,9 +27,9 @@ const mapDispatchToProps = {
   fetchItems,
   goToItem: id => push(`/expense/${id}`),
   goToAddItem: () => push('/add-expense'),
-}
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(Home);
