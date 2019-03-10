@@ -12,9 +12,12 @@ export default ({ title, cost, date, onClick }) => (
   <Box mb={2} px={[2, 1]} w={[1, 1, 1 / 2]}>
     <BlockLink onClick={onClick} bg={colors.white} p={[1, 2]}>
       <Text fontSize={2} mb={1}>
-        {title} <InlineText color="blue">${cost}</InlineText>
+        {title}
       </Text>
-      <Text fontSize={1}>{format(date, 'dd/MM/yyyy')}</Text>
+      <Text fontSize={1} mb={1}>
+        {format(date, 'dd/MM/yyyy')}
+      </Text>
+      <Text color="blue">${cost}</Text>
     </BlockLink>
   </Box>
 );

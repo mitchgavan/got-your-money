@@ -66,10 +66,12 @@ export default class Home extends React.Component {
         <ExpenseTotal total={this.props.itemsTotalCostForCurrentWeek} />
         <Container>
           <WeeklySummary startOfWeek={this.props.date.startOfWeek} />
-          <Flex p={3} justifyContent="center">
+          <Flex p={3} justifyContent="space-between">
+            <Button onClick={this.props.previousWeek}>Last Week</Button>
             <ButtonLink onClick={this.props.goToAddItem} bg="green">
               Add a new expense
             </ButtonLink>
+            <Button onClick={this.props.nextWeek}>Next Week</Button>
           </Flex>
           {this.renderExpenses()}
           <Flex p={3} justifyContent="space-between">
